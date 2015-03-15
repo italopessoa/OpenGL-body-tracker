@@ -1,0 +1,268 @@
+.TH "Matriz" 3 "Sat Mar 14 2015" "Version 1.0.0" "Body Tracker" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Matriz \- 
+The \fBMatriz\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <matriz\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMatriz\fP ()"
+.br
+.RI "\fI\fBMatriz\fP\&. \fP"
+.ti -1c
+.RI "\fBMatriz\fP (int linha, int coluna)"
+.br
+.RI "\fI\fBMatriz\fP\&. \fP"
+.ti -1c
+.RI "\fBMatriz\fP * \fBMultiplicar\fP (\fBMatriz\fP *m)"
+.br
+.RI "\fIMultiplicar\&. \fP"
+.ti -1c
+.RI "void \fBMultiplicaTransformacao\fP (\fBMatriz\fP *m)"
+.br
+.RI "\fIMultiplicaTransformacao\&. \fP"
+.ti -1c
+.RI "\fBMatriz\fP * \fBSomar\fP (\fBMatriz\fP *m)"
+.br
+.RI "\fISomar\&. \fP"
+.ti -1c
+.RI "\fBMatriz\fP * \fBSubtrair\fP (\fBMatriz\fP *m)"
+.br
+.RI "\fISubtrair\&. \fP"
+.ti -1c
+.RI "\fBMatriz\fP * \fBTransposta\fP ()"
+.br
+.RI "\fITransposta\&. \fP"
+.ti -1c
+.RI "void \fBCarregarIdentidade\fP ()"
+.br
+.RI "\fICarregarIdentidade\&. \fP"
+.ti -1c
+.RI "float \fBRetornaValor\fP (int indice)"
+.br
+.RI "\fIRetornaValor\&. \fP"
+.ti -1c
+.RI "void \fBAlterarValor\fP (int i, double valor)"
+.br
+.RI "\fIAlterarValor\&. \fP"
+.ti -1c
+.RI "void \fBAlterarValor\fP (int x, int y, double valor)"
+.br
+.RI "\fIAlterarValor\&. \fP"
+.ti -1c
+.RI "float \fBBuscarValor\fP (int x, int y)"
+.br
+.RI "\fIBuscarValor\&. \fP"
+.ti -1c
+.RI "int \fBGetLinha\fP ()"
+.br
+.RI "\fIGetLinha\&. \fP"
+.ti -1c
+.RI "int \fBGetColuna\fP ()"
+.br
+.RI "\fIGetColuna\&. \fP"
+.ti -1c
+.RI "GLdouble * \fBMatrixToGLDArray\fP ()"
+.br
+.RI "\fIMatrixToGLDArray\&. \fP"
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::vector< GLdouble > \fB_m\fP"
+.br
+.RI "\fI_m \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBMatriz\fP class\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Matriz::Matriz (intlinha, intcoluna)"
+
+.PP
+\fBMatriz\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlinha\fP 
+.br
+\fIcoluna\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Matriz::AlterarValor (inti, doublevalor)"
+
+.PP
+AlterarValor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP 
+.br
+\fIvalor\fP 
+.RE
+.PP
+
+.SS "void Matriz::AlterarValor (intx, inty, doublevalor)"
+
+.PP
+AlterarValor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP 
+.br
+\fIy\fP 
+.br
+\fIvalor\fP 
+.RE
+.PP
+
+.SS "float Matriz::BuscarValor (intx, inty)"
+
+.PP
+BuscarValor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP 
+.br
+\fIy\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "int Matriz::GetColuna ()"
+
+.PP
+GetColuna\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "int Matriz::GetLinha ()"
+
+.PP
+GetLinha\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "GLdouble * Matriz::MatrixToGLDArray ()"
+
+.PP
+MatrixToGLDArray\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "\fBMatriz\fP * Matriz::Multiplicar (\fBMatriz\fP *m)"
+
+.PP
+Multiplicar\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "void Matriz::MultiplicaTransformacao (\fBMatriz\fP *m)"
+
+.PP
+MultiplicaTransformacao\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP 
+.RE
+.PP
+
+.SS "float Matriz::RetornaValor (intindice)"
+
+.PP
+RetornaValor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindice\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBMatriz\fP * Matriz::Somar (\fBMatriz\fP *m)"
+
+.PP
+Somar\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBMatriz\fP * Matriz::Subtrair (\fBMatriz\fP *m)"
+
+.PP
+Subtrair\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBMatriz\fP * Matriz::Transposta ()"
+
+.PP
+Transposta\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Body Tracker from the source code\&.
