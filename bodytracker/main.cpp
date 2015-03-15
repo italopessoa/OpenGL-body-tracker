@@ -8,6 +8,8 @@
 using namespace std;
 
 enum RotationEnum {ROT_X, ROT_Y, ROT_Z, ROT_STOP};
+enum GroundTypeEnum {EMPTY, SQUARES, POLYGON};
+
 double _mRotacao[16];
 
 RotationEnum _rotacao = ROT_STOP;
@@ -18,7 +20,6 @@ static Objeto3d* _torus = new Objeto3d();
  * @brief _teta angulo de rotação
  */
 static double _teta;
-
 
 void log(std::string mensagem)
 {
@@ -55,21 +56,124 @@ void DisplayEnd()
     glutSwapBuffers();
 }
 
-void DrawGrid()
+/**
+ * @brief DrawLineGround
+ * @param x
+ * @param y
+ * @param z
+ * @param size
+ * @param space
+ */
+void DrawLineGround(GLfloat x, GLfloat z,int size, GLfloat space)
 {
     glPushMatrix();
+        glBegin(GL_LINE_STRIP);
+            glVertex3f(x,0,z);
+            glVertex3f(x+size,0,z);
+            glVertex3f(x+size,0,z-size);
+            glVertex3f(x,0,z-size);
+            glVertex3f(x,0,z);
+        glEnd();
 
-    glBegin(GL_LINE_STRIP);
-    glVertex3f(-50,0,50);
-    glVertex3f(50,0,50);
-    glVertex3f(50,0,-50);
-    glVertex3f(-50,0,-50);
-    glVertex3f(-50,0,50);
-    glEnd();
+        GLfloat total = size/space;
 
+        int i;
+
+        for (i = 1; i< total; i++)
+        {
+            glBegin(GL_LINES);
+                glVertex3f(x+(space*i),0,z);
+                glVertex3f(x+(space*i),0,z-size);
+            glEnd();
+
+            glBegin(GL_LINES);
+                glVertex3f(x,0,z-(space*i));
+                glVertex3f(x+size,0,z-(space*i));
+            glEnd();
+        }
     glPopMatrix();
 }
 
+/**
+ * @brief DrawPolygonGround
+ * @param x
+ * @param z
+ * @param size
+ * @param space
+ */
+void DrawPolygonGround(GLfloat x, GLfloat z,int size, GLfloat space)
+{
+    glPushMatrix();
+
+    GLfloat total = size/space;
+
+    int i,j, r,g,b;
+    r = 0;
+    g = 0;
+    b = 0;
+    GLfloat xAux;
+
+    for (j = 0; j< total; j++)
+    {
+        xAux = x;
+
+        for (i = 0; i< total; i++)
+        {
+            if((i+j)%2 == 0)
+            {
+                g = 1;
+                b = r = 0;
+            }
+            else
+            {
+                b = 1;
+                g = r = 0;
+            }
+            glBegin(GL_POLYGON);
+                glColor3d(r,g,b);
+                glVertex3f(xAux,0,z);
+                glVertex3f(xAux+space,0,z);
+                glVertex3f(xAux+space,0,z-space);
+                glVertex3f(xAux,0,z-space);
+            glEnd();
+
+            xAux+=space;
+        }
+        z-=space;
+    }
+    glPopMatrix();
+}
+
+
+/**
+ * @brief DrawGround
+ * @param groundType
+ * @param initialPoint
+ * @param groundSize
+ * @param space
+ */
+void DrawGround(GroundTypeEnum groundType, GLint* initialPoint, int groundSize, GLfloat space)
+{
+    switch (groundType) {
+    case EMPTY:
+        glPushMatrix();
+            glBegin(GL_LINE_STRIP);
+                glVertex3f(initialPoint[0],0,initialPoint[1]);
+                glVertex3f(initialPoint[0]+groundSize,0,initialPoint[1]);
+                glVertex3f(initialPoint[0]+groundSize,0,initialPoint[1]-groundSize);
+                glVertex3f(initialPoint[0],0,initialPoint[1]-groundSize);
+                glVertex3f(initialPoint[0],0,initialPoint[1]);
+            glEnd();
+        glPopMatrix();
+        break;
+    case SQUARES:
+        DrawLineGround(initialPoint[0],initialPoint[1],groundSize,space);
+        break;
+    case POLYGON:
+        DrawPolygonGround(initialPoint[0],initialPoint[1],groundSize,space);
+        break;
+    }
+}
 
 /**
  * @brief Função callback chamada para fazer o desenho.
@@ -80,7 +184,10 @@ void Draw(void)
     DisplayInit();
 
     glColor3d(0.4,0.3,1);
-    DrawGrid();
+
+    GLint point[2] = {-50,50};
+    DrawGround(POLYGON,point,100,3.125);
+    glColor3d(0.4,0.3,1);
     //glPushMatrix();
 
     switch (_rotacao) {
@@ -117,7 +224,7 @@ void Draw(void)
     _torus->RotacionaZ(_teta);
     //glPushMatrix();
         //glMultTransposeMatrixd(_torus->GetMatrizRotacao());
-        _torus->Desenha();
+    _torus->Desenha();
         //glPushMatrix();
         //glPopMatrix();
     //glPopMatrix();
