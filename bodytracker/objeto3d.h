@@ -5,61 +5,85 @@
 #include <math.h>
 #define ESCALA 0.025
 
+/**
+ * @brief Classe que representa um objeto 3D
+ *
+ * Esta classe emgloba propriedades e operações disponíveis para um objeto 3D
+ */
 class Objeto3d
 {
 public:
+    /**
+     * @brief Construtor padrão
+     */
     Objeto3d();
+
     ~Objeto3d();
 
     /**
-     * @brief RotacionaX
-     * @param teta
+     * @brief Rotacionar o objeto no eixo X
+     *
+     * Gerar a matrix de rotação no eixo X com o ângulo indicado
+     * @param Angulo de rotação
      */
     void RotacionaX(double teta);
 
     /**
-     * @brief RotacionaY
-     * @param teta
+     * @brief Rotacionar o objeto no eixo Y
+     *
+     * Gerar a matrix de rotação no eixo Y com o ângulo indicado
+     * @param Angulo de rotação
      */
     void RotacionaY(double teta);
 
     /**
-     * @brief RotacionaZ
-     * @param teta
+     * @brief Rotacionar o objeto no eixo Z
+     *
+     * Gerar a matrix de rotação no eixo Z com o ângulo indicado
+     * @param Angulo de rotação
      */
     void RotacionaZ(double teta);
 
     /**
-     * @brief Desenha
+     * @brief Desenhar objeto
      */
     void Desenha();
 
     /**
-     * @brief GetMatrizRotacao
-     * @return
+     * @brief Recuperar matriz de rotação atual
+     * @return Vetor contendo os valores da matriz de rotação
      */
     GLdouble* GetMatrizRotacao();
 
     /**
-     * @brief WriteData Desenha um texto na janela GLUT
-     * @param texto
+     * @brief Escrever informações do objeto em um ponto da janela
+     * @param Texto a ser escrito
+     * @param x Posição X onde texto objeto será desenhado
+     * @param y Posição Y onde texto objeto será desenhado
+     * @param z Posição Z onde texto objeto será desenhado
      */
     void WriteData(char *texto, GLfloat x, GLfloat y, GLfloat z);
 
     /**
-     * @brief AumentarEscala
+     * @brief Aumentar o fator de escala do objeto
      */
     void AumentarEscala();
 
     /**
-     * @brief DiminuirEscala
+     * @brief Diminuir o fator de escala do objeto
      */
     void DiminuirEscala();
 
 private:
 
     /**
-     * @brief _rotacao
+     * @brief Matriz de rotação atual
+     *
+     * Composição de todas as submatrizes\n
+     * [R][R][R][T]\n
+     * [R][R][R][T]\n
+     * [R][R][R][T]\n
+     * [0][0][0][1]
      */
     Matriz* _rotacao;
 
@@ -67,37 +91,37 @@ private:
     //Matriz* _rotacaoAuxiliar;*
 
     /**
-     * @brief _rotX
+     * @brief Matriz utilizada para calcular a rotação no eixo X
      */
     Matriz* _rotX;
 
     /**
-     * @brief _rotY
+     * @brief Matriz utilizada para calcular a rotação no eixo Y
      */
     Matriz* _rotY;
 
     /**
-     * @brief _rotZ
+     * @brief Matriz utilizada para calcular a rotação no eixo Z
      */
     Matriz* _rotZ;
 
     /**
-     * @brief texto
+     * @brief Texto utilizado para escrever mensagens na tela com informações do objeto
      */
     char _texto[60];
 
     /**
-     * @brief _teta
+     * @brief Ângulo de rotação do objeto em relação a um eixo
      */
     double _teta;
 
     /**
-     * @brief _escala
+     * @brief Fator de escala
      */
     GLdouble _fatorEscala;
 
     /**
-     * @brief _mEscala
+     * @brief Matriz escala
      */
     Matriz* _mEscala;
 };

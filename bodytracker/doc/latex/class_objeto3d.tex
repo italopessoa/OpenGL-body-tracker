@@ -1,29 +1,46 @@
 \hypertarget{class_objeto3d}{\section{Objeto3d Class Reference}
 \label{class_objeto3d}\index{Objeto3d@{Objeto3d}}
 }
+
+
+Classe que representa um objeto 3\+D.  
+
+
+
+
+{\ttfamily \#include $<$objeto3d.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{class_objeto3d_af272029a83c257f9e89c9bfaba63896e}{\hyperlink{class_objeto3d_af272029a83c257f9e89c9bfaba63896e}{Objeto3d} ()}\label{class_objeto3d_af272029a83c257f9e89c9bfaba63896e}
+
+\begin{DoxyCompactList}\small\item\em Construtor padrão. \end{DoxyCompactList}\item 
 void \hyperlink{class_objeto3d_a22b95eda6eaa614054414960bba71975}{Rotaciona\+X} (double teta)
-\begin{DoxyCompactList}\small\item\em Rotaciona\+X. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Rotacionar o objeto no eixo X. \end{DoxyCompactList}\item 
 void \hyperlink{class_objeto3d_abc3677a4f2f11189e5a5e0c20c58afbf}{Rotaciona\+Y} (double teta)
-\begin{DoxyCompactList}\small\item\em Rotaciona\+Y. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Rotacionar o objeto no eixo Y. \end{DoxyCompactList}\item 
 void \hyperlink{class_objeto3d_aa6b3be158f45ff94c2ba9edebfcdef75}{Rotaciona\+Z} (double teta)
-\begin{DoxyCompactList}\small\item\em Rotaciona\+Z. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Rotacionar o objeto no eixo Z. \end{DoxyCompactList}\item 
 \hypertarget{class_objeto3d_af2a8eb55a37b7433c81805967d84e101}{void \hyperlink{class_objeto3d_af2a8eb55a37b7433c81805967d84e101}{Desenha} ()}\label{class_objeto3d_af2a8eb55a37b7433c81805967d84e101}
 
-\begin{DoxyCompactList}\small\item\em Desenha. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Desenhar objeto. \end{DoxyCompactList}\item 
 G\+Ldouble $\ast$ \hyperlink{class_objeto3d_a1dff3d3ddcede978fce9e961c13b96d8}{Get\+Matriz\+Rotacao} ()
-\begin{DoxyCompactList}\small\item\em Get\+Matriz\+Rotacao. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Recuperar matriz de rotação atual. \end{DoxyCompactList}\item 
 void \hyperlink{class_objeto3d_a95dbd1c265ace9c4596c4c96552f28e1}{Write\+Data} (char $\ast$texto, G\+Lfloat x, G\+Lfloat y, G\+Lfloat z)
-\begin{DoxyCompactList}\small\item\em Write\+Data Desenha um texto na janela G\+L\+U\+T. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Escrever informações do objeto em um ponto da janela. \end{DoxyCompactList}\item 
 \hypertarget{class_objeto3d_a97c8c05fd5f78c4c380e5b1e78fbd3f2}{void \hyperlink{class_objeto3d_a97c8c05fd5f78c4c380e5b1e78fbd3f2}{Aumentar\+Escala} ()}\label{class_objeto3d_a97c8c05fd5f78c4c380e5b1e78fbd3f2}
 
-\begin{DoxyCompactList}\small\item\em Aumentar\+Escala. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Aumentar o fator de escala do objeto. \end{DoxyCompactList}\item 
 \hypertarget{class_objeto3d_a33bae92d118504201e21e048355324a0}{void \hyperlink{class_objeto3d_a33bae92d118504201e21e048355324a0}{Diminuir\+Escala} ()}\label{class_objeto3d_a33bae92d118504201e21e048355324a0}
 
-\begin{DoxyCompactList}\small\item\em Diminuir\+Escala. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Diminuir o fator de escala do objeto. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Classe que representa um objeto 3\+D. 
+
+Esta classe emgloba propriedades e operações disponíveis para um objeto 3\+D 
 
 \subsection{Member Function Documentation}
 \hypertarget{class_objeto3d_a1dff3d3ddcede978fce9e961c13b96d8}{\index{Objeto3d@{Objeto3d}!Get\+Matriz\+Rotacao@{Get\+Matriz\+Rotacao}}
@@ -35,10 +52,10 @@ void \hyperlink{class_objeto3d_a95dbd1c265ace9c4596c4c96552f28e1}{Write\+Data} (
 )}}\label{class_objeto3d_a1dff3d3ddcede978fce9e961c13b96d8}
 
 
-Get\+Matriz\+Rotacao. 
+Recuperar matriz de rotação atual. 
 
 \begin{DoxyReturn}{Returns}
-
+Vetor contendo os valores da matriz de rotação 
 \end{DoxyReturn}
 \hypertarget{class_objeto3d_a22b95eda6eaa614054414960bba71975}{\index{Objeto3d@{Objeto3d}!Rotaciona\+X@{Rotaciona\+X}}
 \index{Rotaciona\+X@{Rotaciona\+X}!Objeto3d@{Objeto3d}}
@@ -49,11 +66,11 @@ Get\+Matriz\+Rotacao.
 )}}\label{class_objeto3d_a22b95eda6eaa614054414960bba71975}
 
 
-Rotaciona\+X. 
+Rotacionar o objeto no eixo X. 
 
-
+Gerar a matrix de rotação no eixo X com o ângulo indicado 
 \begin{DoxyParams}{Parameters}
-{\em teta} & \\
+{\em Angulo} & de rotação \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_objeto3d_abc3677a4f2f11189e5a5e0c20c58afbf}{\index{Objeto3d@{Objeto3d}!Rotaciona\+Y@{Rotaciona\+Y}}
@@ -65,11 +82,11 @@ Rotaciona\+X.
 )}}\label{class_objeto3d_abc3677a4f2f11189e5a5e0c20c58afbf}
 
 
-Rotaciona\+Y. 
+Rotacionar o objeto no eixo Y. 
 
-
+Gerar a matrix de rotação no eixo Y com o ângulo indicado 
 \begin{DoxyParams}{Parameters}
-{\em teta} & \\
+{\em Angulo} & de rotação \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_objeto3d_aa6b3be158f45ff94c2ba9edebfcdef75}{\index{Objeto3d@{Objeto3d}!Rotaciona\+Z@{Rotaciona\+Z}}
@@ -81,11 +98,11 @@ Rotaciona\+Y.
 )}}\label{class_objeto3d_aa6b3be158f45ff94c2ba9edebfcdef75}
 
 
-Rotaciona\+Z. 
+Rotacionar o objeto no eixo Z. 
 
-
+Gerar a matrix de rotação no eixo Z com o ângulo indicado 
 \begin{DoxyParams}{Parameters}
-{\em teta} & \\
+{\em Angulo} & de rotação \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_objeto3d_a95dbd1c265ace9c4596c4c96552f28e1}{\index{Objeto3d@{Objeto3d}!Write\+Data@{Write\+Data}}
@@ -100,11 +117,17 @@ Rotaciona\+Z.
 )}}\label{class_objeto3d_a95dbd1c265ace9c4596c4c96552f28e1}
 
 
-Write\+Data Desenha um texto na janela G\+L\+U\+T. 
+Escrever informações do objeto em um ponto da janela. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em texto} & \\
+{\em Texto} & a ser escrito \\
+\hline
+{\em x} & Posição X onde texto objeto será desenhado \\
+\hline
+{\em y} & Posição Y onde texto objeto será desenhado \\
+\hline
+{\em z} & Posição Z onde texto objeto será desenhado \\
 \hline
 \end{DoxyParams}
 

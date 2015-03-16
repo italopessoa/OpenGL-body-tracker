@@ -1,0 +1,80 @@
+.TH "Utils" 3 "Mon Mar 16 2015" "Version 1.0.0" "Body Tracker" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Utils \- 
+.PP
+Class com método e propriedades úteis a todo o sistema\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <utils\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBRotationEnum\fP { \fBROT_X\fP, \fBROT_Y\fP, \fBROT_Z\fP, \fBROT_STOP\fP }"
+.br
+.RI "\fIEnum que representa os tipos de rotações\&. \fP"
+.ti -1c
+.RI "enum \fBGroundTypeEnum\fP { \fBEMPTY\fP, \fBSQUARES\fP, \fBPOLYGON\fP, \fBCUBE\fP }"
+.br
+.RI "\fIEnum que representa os tipos de solo que podem ser desenhados\&. \fP"
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBUtils\fP ()"
+.br
+.RI "\fIConstrutor padrão\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class com método e propriedades úteis a todo o sistema\&. 
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBUtils::GroundTypeEnum\fP"
+
+.PP
+Enum que representa os tipos de solo que podem ser desenhados\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIEMPTY \fP\fP
+Utilizado para representar o chão vazio\&. 
+.TP
+\fB\fISQUARES \fP\fP
+Utilizado para representar o chão preenchido com quadrados\&. 
+.TP
+\fB\fIPOLYGON \fP\fP
+Utilizado para representar o chão preenchido com polígonos sólidos\&. 
+.TP
+\fB\fICUBE \fP\fP
+Utilizado para representar o chão, teto e paredes feitos com linhas\&. 
+.SS "enum \fBUtils::RotationEnum\fP"
+
+.PP
+Enum que representa os tipos de rotações\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIROT_X \fP\fP
+Utilizado para representar rotação no eixo X\&. 
+.TP
+\fB\fIROT_Y \fP\fP
+Utilizado para representar rotação no eixo Y\&. 
+.TP
+\fB\fIROT_Z \fP\fP
+Utilizado para representar rotação no eixo Z\&. 
+.TP
+\fB\fIROT_STOP \fP\fP
+Utilizado para representar o fim da rotação\&. O objeto permanece parado\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Body Tracker from the source code\&.

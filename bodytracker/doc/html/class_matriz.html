@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('class_matriz.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('class_matriz.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="class_matriz.html" title="The Matriz class. ">Matriz</a> class.  
+<p>Classe que representa uma matriz e suas operações.  
  <a href="class_matriz.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="matriz_8h_source.html">matriz.h</a>&gt;</code></p>
@@ -121,61 +121,60 @@ $(document).ready(function(){initNavTree('class_matriz.html','');});
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7de756301bddbc4b0b5d2a0f2b1fc695"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7de756301bddbc4b0b5d2a0f2b1fc695"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#a7de756301bddbc4b0b5d2a0f2b1fc695">Matriz</a> ()</td></tr>
-<tr class="memdesc:a7de756301bddbc4b0b5d2a0f2b1fc695"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_matriz.html" title="The Matriz class. ">Matriz</a>. <br /></td></tr>
+<tr class="memdesc:a7de756301bddbc4b0b5d2a0f2b1fc695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão. <br /></td></tr>
 <tr class="separator:a7de756301bddbc4b0b5d2a0f2b1fc695"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57a8c6b672158239b429c72f4b4e316c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#a57a8c6b672158239b429c72f4b4e316c">Matriz</a> (int linha, int coluna)</td></tr>
-<tr class="memdesc:a57a8c6b672158239b429c72f4b4e316c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_matriz.html" title="The Matriz class. ">Matriz</a>.  <a href="#a57a8c6b672158239b429c72f4b4e316c">More...</a><br /></td></tr>
+<tr class="memdesc:a57a8c6b672158239b429c72f4b4e316c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contrutor utilizado para inicializar uma matriz com suas dimensões.  <a href="#a57a8c6b672158239b429c72f4b4e316c">More...</a><br /></td></tr>
 <tr class="separator:a57a8c6b672158239b429c72f4b4e316c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9f66302d01429ea558f420ba42175ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matriz.html">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#af9f66302d01429ea558f420ba42175ab">Multiplicar</a> (<a class="el" href="class_matriz.html">Matriz</a> *m)</td></tr>
-<tr class="memdesc:af9f66302d01429ea558f420ba42175ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplicar.  <a href="#af9f66302d01429ea558f420ba42175ab">More...</a><br /></td></tr>
+<tr class="memdesc:af9f66302d01429ea558f420ba42175ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método utilizado para multiplica duas matrizes.  <a href="#af9f66302d01429ea558f420ba42175ab">More...</a><br /></td></tr>
 <tr class="separator:af9f66302d01429ea558f420ba42175ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf1b06373979d8dd4074347a2f62eeb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#adf1b06373979d8dd4074347a2f62eeb7">MultiplicaTransformacao</a> (<a class="el" href="class_matriz.html">Matriz</a> *m)</td></tr>
-<tr class="memdesc:adf1b06373979d8dd4074347a2f62eeb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">MultiplicaTransformacao.  <a href="#adf1b06373979d8dd4074347a2f62eeb7">More...</a><br /></td></tr>
+<tr class="memdesc:adf1b06373979d8dd4074347a2f62eeb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Semelhante ao método Multiplicar.  <a href="#adf1b06373979d8dd4074347a2f62eeb7">More...</a><br /></td></tr>
 <tr class="separator:adf1b06373979d8dd4074347a2f62eeb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae741af63b4094d2cb146cc0cba1a376b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matriz.html">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#ae741af63b4094d2cb146cc0cba1a376b">Somar</a> (<a class="el" href="class_matriz.html">Matriz</a> *m)</td></tr>
-<tr class="memdesc:ae741af63b4094d2cb146cc0cba1a376b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Somar.  <a href="#ae741af63b4094d2cb146cc0cba1a376b">More...</a><br /></td></tr>
+<tr class="memdesc:ae741af63b4094d2cb146cc0cba1a376b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Somar duas matrizes.  <a href="#ae741af63b4094d2cb146cc0cba1a376b">More...</a><br /></td></tr>
 <tr class="separator:ae741af63b4094d2cb146cc0cba1a376b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab210cb033064a42d99a71f4ac5266d4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matriz.html">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#ab210cb033064a42d99a71f4ac5266d4d">Subtrair</a> (<a class="el" href="class_matriz.html">Matriz</a> *m)</td></tr>
-<tr class="memdesc:ab210cb033064a42d99a71f4ac5266d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtrair.  <a href="#ab210cb033064a42d99a71f4ac5266d4d">More...</a><br /></td></tr>
-<tr class="separator:ab210cb033064a42d99a71f4ac5266d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4778d42de62e8d6b47a66fea73894cbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matriz.html">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#a4778d42de62e8d6b47a66fea73894cbd">Transposta</a> ()</td></tr>
-<tr class="memdesc:a4778d42de62e8d6b47a66fea73894cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposta.  <a href="#a4778d42de62e8d6b47a66fea73894cbd">More...</a><br /></td></tr>
+<tr class="memdesc:a4778d42de62e8d6b47a66fea73894cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculo da transposta da matriz atual.  <a href="#a4778d42de62e8d6b47a66fea73894cbd">More...</a><br /></td></tr>
 <tr class="separator:a4778d42de62e8d6b47a66fea73894cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d6e584c24c8c842054e5f1b163da4a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d6e584c24c8c842054e5f1b163da4a8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#a6d6e584c24c8c842054e5f1b163da4a8">CarregarIdentidade</a> ()</td></tr>
-<tr class="memdesc:a6d6e584c24c8c842054e5f1b163da4a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">CarregarIdentidade. <br /></td></tr>
+<tr class="memitem:ab210cb033064a42d99a71f4ac5266d4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matriz.html">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#ab210cb033064a42d99a71f4ac5266d4d">Subtrair</a> (<a class="el" href="class_matriz.html">Matriz</a> *m)</td></tr>
+<tr class="memdesc:ab210cb033064a42d99a71f4ac5266d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtrair duas matrizes.  <a href="#ab210cb033064a42d99a71f4ac5266d4d">More...</a><br /></td></tr>
+<tr class="separator:ab210cb033064a42d99a71f4ac5266d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d6e584c24c8c842054e5f1b163da4a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#a6d6e584c24c8c842054e5f1b163da4a8">CarregarIdentidade</a> ()</td></tr>
+<tr class="memdesc:a6d6e584c24c8c842054e5f1b163da4a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Preencher a matriz atual com a matriz identidade.  <a href="#a6d6e584c24c8c842054e5f1b163da4a8">More...</a><br /></td></tr>
 <tr class="separator:a6d6e584c24c8c842054e5f1b163da4a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b1d243308d2abe0c4a006290080d1ca"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#a1b1d243308d2abe0c4a006290080d1ca">RetornaValor</a> (int indice)</td></tr>
-<tr class="memdesc:a1b1d243308d2abe0c4a006290080d1ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">RetornaValor.  <a href="#a1b1d243308d2abe0c4a006290080d1ca">More...</a><br /></td></tr>
+<tr class="memdesc:a1b1d243308d2abe0c4a006290080d1ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buscar valor no vetor que representa a matriz.  <a href="#a1b1d243308d2abe0c4a006290080d1ca">More...</a><br /></td></tr>
 <tr class="separator:a1b1d243308d2abe0c4a006290080d1ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c314e508d6c1e914934d5f1ef2de1ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#a8c314e508d6c1e914934d5f1ef2de1ef">AlterarValor</a> (int i, double valor)</td></tr>
-<tr class="memdesc:a8c314e508d6c1e914934d5f1ef2de1ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">AlterarValor.  <a href="#a8c314e508d6c1e914934d5f1ef2de1ef">More...</a><br /></td></tr>
+<tr class="memdesc:a8c314e508d6c1e914934d5f1ef2de1ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alterar valor no vetor que representa a matriz.  <a href="#a8c314e508d6c1e914934d5f1ef2de1ef">More...</a><br /></td></tr>
 <tr class="separator:a8c314e508d6c1e914934d5f1ef2de1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f69fad47da1df40be3f448395c718cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#a8f69fad47da1df40be3f448395c718cf">AlterarValor</a> (int x, int y, double valor)</td></tr>
-<tr class="memdesc:a8f69fad47da1df40be3f448395c718cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">AlterarValor.  <a href="#a8f69fad47da1df40be3f448395c718cf">More...</a><br /></td></tr>
+<tr class="memdesc:a8f69fad47da1df40be3f448395c718cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alterar valor utilizando coordenadas da matriz.  <a href="#a8f69fad47da1df40be3f448395c718cf">More...</a><br /></td></tr>
 <tr class="separator:a8f69fad47da1df40be3f448395c718cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee54b8e25924456f4edc7bf10146d877"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#aee54b8e25924456f4edc7bf10146d877">BuscarValor</a> (int x, int y)</td></tr>
-<tr class="memdesc:aee54b8e25924456f4edc7bf10146d877"><td class="mdescLeft">&#160;</td><td class="mdescRight">BuscarValor.  <a href="#aee54b8e25924456f4edc7bf10146d877">More...</a><br /></td></tr>
+<tr class="memdesc:aee54b8e25924456f4edc7bf10146d877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buscar valor utilizando coordenadas da matriz.  <a href="#aee54b8e25924456f4edc7bf10146d877">More...</a><br /></td></tr>
 <tr class="separator:aee54b8e25924456f4edc7bf10146d877"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e9924501f170446e0142a1fccf991a8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#a7e9924501f170446e0142a1fccf991a8">GetLinha</a> ()</td></tr>
-<tr class="memdesc:a7e9924501f170446e0142a1fccf991a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">GetLinha.  <a href="#a7e9924501f170446e0142a1fccf991a8">More...</a><br /></td></tr>
+<tr class="memdesc:a7e9924501f170446e0142a1fccf991a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para acessar a quantidade de linhas de uma matriz.  <a href="#a7e9924501f170446e0142a1fccf991a8">More...</a><br /></td></tr>
 <tr class="separator:a7e9924501f170446e0142a1fccf991a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb08d38a62492a116456d5d2a14c7b04"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#acb08d38a62492a116456d5d2a14c7b04">GetColuna</a> ()</td></tr>
-<tr class="memdesc:acb08d38a62492a116456d5d2a14c7b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">GetColuna.  <a href="#acb08d38a62492a116456d5d2a14c7b04">More...</a><br /></td></tr>
+<tr class="memdesc:acb08d38a62492a116456d5d2a14c7b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para acessar a quantidade de colunas de uma matriz.  <a href="#acb08d38a62492a116456d5d2a14c7b04">More...</a><br /></td></tr>
 <tr class="separator:acb08d38a62492a116456d5d2a14c7b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad5c44bfa49cbe5221cee329a37303f9"><td class="memItemLeft" align="right" valign="top">GLdouble *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#aad5c44bfa49cbe5221cee329a37303f9">MatrixToGLDArray</a> ()</td></tr>
-<tr class="memdesc:aad5c44bfa49cbe5221cee329a37303f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">MatrixToGLDArray.  <a href="#aad5c44bfa49cbe5221cee329a37303f9">More...</a><br /></td></tr>
+<tr class="memdesc:aad5c44bfa49cbe5221cee329a37303f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converter matriz atual um array.  <a href="#aad5c44bfa49cbe5221cee329a37303f9">More...</a><br /></td></tr>
 <tr class="separator:aad5c44bfa49cbe5221cee329a37303f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a7727f44e3e2c55a2ea80582f9e578ef3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7727f44e3e2c55a2ea80582f9e578ef3"></a>
 std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matriz.html#a7727f44e3e2c55a2ea80582f9e578ef3">_m</a></td></tr>
-<tr class="memdesc:a7727f44e3e2c55a2ea80582f9e578ef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">_m <br /></td></tr>
+<tr class="memdesc:a7727f44e3e2c55a2ea80582f9e578ef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vetor que representa a matriz. <br /></td></tr>
 <tr class="separator:a7727f44e3e2c55a2ea80582f9e578ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="class_matriz.html" title="The Matriz class. ">Matriz</a> class. </p>
+<div class="textblock"><p>Classe que representa uma matriz e suas operações. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a57a8c6b672158239b429c72f4b4e316c"></a>
 <div class="memitem">
@@ -201,11 +200,11 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_matriz.html" title="The Matriz class. ">Matriz</a>. </p>
+<p>Contrutor utilizado para inicializar uma matriz com suas dimensões. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">linha</td><td></td></tr>
-    <tr><td class="paramname">coluna</td><td></td></tr>
+    <tr><td class="paramname">linha</td><td>Número de linhas </td></tr>
+    <tr><td class="paramname">coluna</td><td>Número de colunas </td></tr>
   </table>
   </dd>
 </dl>
@@ -237,11 +236,11 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
       </table>
 </div><div class="memdoc">
 
-<p>AlterarValor. </p>
+<p>Alterar valor no vetor que representa a matriz. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td></td></tr>
-    <tr><td class="paramname">valor</td><td></td></tr>
+    <tr><td class="paramname">i</td><td>Índice direto do vetor </td></tr>
+    <tr><td class="paramname">valor</td><td>Valor a ser inserido no índice do vetor </td></tr>
   </table>
   </dd>
 </dl>
@@ -278,12 +277,12 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
       </table>
 </div><div class="memdoc">
 
-<p>AlterarValor. </p>
+<p>Alterar valor utilizando coordenadas da matriz. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
-    <tr><td class="paramname">valor</td><td></td></tr>
+    <tr><td class="paramname">x</td><td>Linha </td></tr>
+    <tr><td class="paramname">y</td><td>Coluna </td></tr>
+    <tr><td class="paramname">valor</td><td>Valor a ser inserido </td></tr>
   </table>
   </dd>
 </dl>
@@ -314,15 +313,36 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
       </table>
 </div><div class="memdoc">
 
-<p>BuscarValor. </p>
+<p>Buscar valor utilizando coordenadas da matriz. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">x</td><td>Linha </td></tr>
+    <tr><td class="paramname">y</td><td>Coluna </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Valor armazenado nas coordenadas indicadas </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6d6e584c24c8c842054e5f1b163da4a8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Matriz::CarregarIdentidade </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Preencher a matriz atual com a matriz identidade. </p>
+<p>[1][0][0]<br />
+[0][1][0]<br />
+[0][0][1]<br />
+Podendo variar de acordo com as dimenções da matriz. </p>
 
 </div>
 </div>
@@ -339,8 +359,8 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
       </table>
 </div><div class="memdoc">
 
-<p>GetColuna. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Método para acessar a quantidade de colunas de uma matriz. </p>
+<dl class="section return"><dt>Returns</dt><dd>Quantidade de colunas da matriz </dd></dl>
 
 </div>
 </div>
@@ -357,8 +377,8 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
       </table>
 </div><div class="memdoc">
 
-<p>GetLinha. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Método para acessar a quantidade de linhas de uma matriz. </p>
+<dl class="section return"><dt>Returns</dt><dd>Quantidade de linhas da matriz </dd></dl>
 
 </div>
 </div>
@@ -375,8 +395,8 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
       </table>
 </div><div class="memdoc">
 
-<p>MatrixToGLDArray. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Converter matriz atual um array. </p>
+<p>Este método é utilizado quando for necessário um vetor GLdouble </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -394,14 +414,14 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
       </table>
 </div><div class="memdoc">
 
-<p>Multiplicar. </p>
+<p>Método utilizado para multiplica duas matrizes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td></td></tr>
+    <tr><td class="paramname">m</td><td><a class="el" href="class_matriz.html" title="Classe que representa uma matriz e suas operações. ">Matriz</a> que será multiplicada pela matriz atual </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Uma nova matriz contendo o resultado da multiplicaçao </dd></dl>
 
 </div>
 </div>
@@ -419,10 +439,11 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
       </table>
 </div><div class="memdoc">
 
-<p>MultiplicaTransformacao. </p>
+<p>Semelhante ao método Multiplicar. </p>
+<p>Neste método o resultado da multiplicação é salvo na matriz atual. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_matriz.html#af9f66302d01429ea558f420ba42175ab" title="Método utilizado para multiplica duas matrizes. ">Multiplicar()</a>; </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td></td></tr>
+    <tr><td class="paramname">m</td><td><a class="el" href="class_matriz.html" title="Classe que representa uma matriz e suas operações. ">Matriz</a> que será multiplicada pela matriz atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -443,14 +464,14 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
       </table>
 </div><div class="memdoc">
 
-<p>RetornaValor. </p>
+<p>Buscar valor no vetor que representa a matriz. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">indice</td><td></td></tr>
+    <tr><td class="paramname">indice</td><td>Índice direto do vetor </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Valor armazenado no índice indicado </dd></dl>
 
 </div>
 </div>
@@ -468,14 +489,14 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
       </table>
 </div><div class="memdoc">
 
-<p>Somar. </p>
+<p>Somar duas matrizes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td></td></tr>
+    <tr><td class="paramname">m</td><td><a class="el" href="class_matriz.html" title="Classe que representa uma matriz e suas operações. ">Matriz</a> que será multiplicada a matriz atual </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Uma nova matriz contendo o resultado da soma </dd></dl>
 
 </div>
 </div>
@@ -493,14 +514,14 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
       </table>
 </div><div class="memdoc">
 
-<p>Subtrair. </p>
+<p>Subtrair duas matrizes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td></td></tr>
+    <tr><td class="paramname">m</td><td><a class="el" href="class_matriz.html" title="Classe que representa uma matriz e suas operações. ">Matriz</a> que será subtraída a matriz atual </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Uma nova matriz contendo o resultado da soma </dd></dl>
 
 </div>
 </div>
@@ -517,8 +538,8 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
       </table>
 </div><div class="memdoc">
 
-<p>Transposta. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Calculo da transposta da matriz atual. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_matriz.html" title="Classe que representa uma matriz e suas operações. ">Matriz</a> transposta da matriz atual </dd></dl>
 
 </div>
 </div>
@@ -532,7 +553,7 @@ std::vector&lt; GLdouble &gt;&#160;</td><td class="memItemRight" valign="bottom"
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_matriz.html">Matriz</a></li>
-    <li class="footer">Generated on Sat Mar 14 2015 21:05:15 for Body Tracker by
+    <li class="footer">Generated on Mon Mar 16 2015 16:16:06 for Body Tracker by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

@@ -1,9 +1,9 @@
-.TH "Matriz" 3 "Sat Mar 14 2015" "Version 1.0.0" "Body Tracker" \" -*- nroff -*-
+.TH "Matriz" 3 "Mon Mar 16 2015" "Version 1.0.0" "Body Tracker" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
 Matriz \- 
-The \fBMatriz\fP class\&.  
+Classe que representa uma matriz e suas operações\&.  
 
 .SH SYNOPSIS
 .br
@@ -16,63 +16,63 @@ The \fBMatriz\fP class\&.
 .ti -1c
 .RI "\fBMatriz\fP ()"
 .br
-.RI "\fI\fBMatriz\fP\&. \fP"
+.RI "\fIConstrutor padrão\&. \fP"
 .ti -1c
 .RI "\fBMatriz\fP (int linha, int coluna)"
 .br
-.RI "\fI\fBMatriz\fP\&. \fP"
+.RI "\fIContrutor utilizado para inicializar uma matriz com suas dimensões\&. \fP"
 .ti -1c
 .RI "\fBMatriz\fP * \fBMultiplicar\fP (\fBMatriz\fP *m)"
 .br
-.RI "\fIMultiplicar\&. \fP"
+.RI "\fIMétodo utilizado para multiplica duas matrizes\&. \fP"
 .ti -1c
 .RI "void \fBMultiplicaTransformacao\fP (\fBMatriz\fP *m)"
 .br
-.RI "\fIMultiplicaTransformacao\&. \fP"
+.RI "\fISemelhante ao método Multiplicar\&. \fP"
 .ti -1c
 .RI "\fBMatriz\fP * \fBSomar\fP (\fBMatriz\fP *m)"
 .br
-.RI "\fISomar\&. \fP"
-.ti -1c
-.RI "\fBMatriz\fP * \fBSubtrair\fP (\fBMatriz\fP *m)"
-.br
-.RI "\fISubtrair\&. \fP"
+.RI "\fISomar duas matrizes\&. \fP"
 .ti -1c
 .RI "\fBMatriz\fP * \fBTransposta\fP ()"
 .br
-.RI "\fITransposta\&. \fP"
+.RI "\fICalculo da transposta da matriz atual\&. \fP"
+.ti -1c
+.RI "\fBMatriz\fP * \fBSubtrair\fP (\fBMatriz\fP *m)"
+.br
+.RI "\fISubtrair duas matrizes\&. \fP"
 .ti -1c
 .RI "void \fBCarregarIdentidade\fP ()"
 .br
-.RI "\fICarregarIdentidade\&. \fP"
+.RI "\fIPreencher a matriz atual com a matriz identidade\&. \fP"
 .ti -1c
 .RI "float \fBRetornaValor\fP (int indice)"
 .br
-.RI "\fIRetornaValor\&. \fP"
+.RI "\fIBuscar valor no vetor que representa a matriz\&. \fP"
 .ti -1c
 .RI "void \fBAlterarValor\fP (int i, double valor)"
 .br
-.RI "\fIAlterarValor\&. \fP"
+.RI "\fIAlterar valor no vetor que representa a matriz\&. \fP"
 .ti -1c
 .RI "void \fBAlterarValor\fP (int x, int y, double valor)"
 .br
-.RI "\fIAlterarValor\&. \fP"
+.RI "\fIAlterar valor utilizando coordenadas da matriz\&. \fP"
 .ti -1c
 .RI "float \fBBuscarValor\fP (int x, int y)"
 .br
-.RI "\fIBuscarValor\&. \fP"
+.RI "\fIBuscar valor utilizando coordenadas da matriz\&. \fP"
 .ti -1c
 .RI "int \fBGetLinha\fP ()"
 .br
-.RI "\fIGetLinha\&. \fP"
+.RI "\fIMétodo para acessar a quantidade de linhas de uma matriz\&. \fP"
 .ti -1c
 .RI "int \fBGetColuna\fP ()"
 .br
-.RI "\fIGetColuna\&. \fP"
+.RI "\fIMétodo para acessar a quantidade de colunas de uma matriz\&. \fP"
 .ti -1c
 .RI "GLdouble * \fBMatrixToGLDArray\fP ()"
 .br
-.RI "\fIMatrixToGLDArray\&. \fP"
+.RI "\fIConverter matriz atual um array\&. \fP"
 .in -1c
 .SS "Public Attributes"
 
@@ -80,23 +80,23 @@ The \fBMatriz\fP class\&.
 .ti -1c
 .RI "std::vector< GLdouble > \fB_m\fP"
 .br
-.RI "\fI_m \fP"
+.RI "\fIVetor que representa a matriz\&. \fP"
 .in -1c
 .SH "Detailed Description"
 .PP 
-The \fBMatriz\fP class\&. 
+Classe que representa uma matriz e suas operações\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Matriz::Matriz (intlinha, intcoluna)"
 
 .PP
-\fBMatriz\fP\&. 
+Contrutor utilizado para inicializar uma matriz com suas dimensões\&. 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIlinha\fP 
+\fIlinha\fP Número de linhas 
 .br
-\fIcoluna\fP 
+\fIcoluna\fP Número de colunas 
 .RE
 .PP
 
@@ -105,74 +105,85 @@ The \fBMatriz\fP class\&.
 .SS "void Matriz::AlterarValor (inti, doublevalor)"
 
 .PP
-AlterarValor\&. 
+Alterar valor no vetor que representa a matriz\&. 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIi\fP 
+\fIi\fP Índice direto do vetor 
 .br
-\fIvalor\fP 
+\fIvalor\fP Valor a ser inserido no índice do vetor 
 .RE
 .PP
 
 .SS "void Matriz::AlterarValor (intx, inty, doublevalor)"
 
 .PP
-AlterarValor\&. 
+Alterar valor utilizando coordenadas da matriz\&. 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIx\fP 
+\fIx\fP Linha 
 .br
-\fIy\fP 
+\fIy\fP Coluna 
 .br
-\fIvalor\fP 
+\fIvalor\fP Valor a ser inserido 
 .RE
 .PP
 
 .SS "float Matriz::BuscarValor (intx, inty)"
 
 .PP
-BuscarValor\&. 
+Buscar valor utilizando coordenadas da matriz\&. 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIx\fP 
+\fIx\fP Linha 
 .br
-\fIy\fP 
+\fIy\fP Coluna 
 .RE
 .PP
 \fBReturns:\fP
 .RS 4
+Valor armazenado nas coordenadas indicadas 
 .RE
 .PP
 
+.SS "void Matriz::CarregarIdentidade ()"
+
+.PP
+Preencher a matriz atual com a matriz identidade\&. [1][0][0]
+.br
+[0][1][0]
+.br
+[0][0][1]
+.br
+Podendo variar de acordo com as dimenções da matriz\&. 
 .SS "int Matriz::GetColuna ()"
 
 .PP
-GetColuna\&. 
+Método para acessar a quantidade de colunas de uma matriz\&. 
 .PP
 \fBReturns:\fP
 .RS 4
-
+Quantidade de colunas da matriz 
 .RE
 .PP
 
 .SS "int Matriz::GetLinha ()"
 
 .PP
-GetLinha\&. 
+Método para acessar a quantidade de linhas de uma matriz\&. 
 .PP
 \fBReturns:\fP
 .RS 4
-
+Quantidade de linhas da matriz 
 .RE
 .PP
 
 .SS "GLdouble * Matriz::MatrixToGLDArray ()"
 
 .PP
-MatrixToGLDArray\&. 
+Converter matriz atual um array\&. Este método é utilizado quando for necessário um vetor GLdouble 
 .PP
 \fBReturns:\fP
 .RS 4
@@ -183,82 +194,91 @@ MatrixToGLDArray\&.
 .SS "\fBMatriz\fP * Matriz::Multiplicar (\fBMatriz\fP *m)"
 
 .PP
-Multiplicar\&. 
+Método utilizado para multiplica duas matrizes\&. 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIm\fP 
+\fIm\fP \fBMatriz\fP que será multiplicada pela matriz atual 
 .RE
 .PP
 \fBReturns:\fP
 .RS 4
+Uma nova matriz contendo o resultado da multiplicaçao 
 .RE
 .PP
 
 .SS "void Matriz::MultiplicaTransformacao (\fBMatriz\fP *m)"
 
 .PP
-MultiplicaTransformacao\&. 
+Semelhante ao método Multiplicar\&. Neste método o resultado da multiplicação é salvo na matriz atual\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBMultiplicar()\fP; 
+.RE
 .PP
 \fBParameters:\fP
 .RS 4
-\fIm\fP 
+\fIm\fP \fBMatriz\fP que será multiplicada pela matriz atual 
 .RE
 .PP
 
 .SS "float Matriz::RetornaValor (intindice)"
 
 .PP
-RetornaValor\&. 
+Buscar valor no vetor que representa a matriz\&. 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIindice\fP 
+\fIindice\fP Índice direto do vetor 
 .RE
 .PP
 \fBReturns:\fP
 .RS 4
+Valor armazenado no índice indicado 
 .RE
 .PP
 
 .SS "\fBMatriz\fP * Matriz::Somar (\fBMatriz\fP *m)"
 
 .PP
-Somar\&. 
+Somar duas matrizes\&. 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIm\fP 
+\fIm\fP \fBMatriz\fP que será multiplicada a matriz atual 
 .RE
 .PP
 \fBReturns:\fP
 .RS 4
+Uma nova matriz contendo o resultado da soma 
 .RE
 .PP
 
 .SS "\fBMatriz\fP * Matriz::Subtrair (\fBMatriz\fP *m)"
 
 .PP
-Subtrair\&. 
+Subtrair duas matrizes\&. 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIm\fP 
+\fIm\fP \fBMatriz\fP que será subtraída a matriz atual 
 .RE
 .PP
 \fBReturns:\fP
 .RS 4
+Uma nova matriz contendo o resultado da soma 
 .RE
 .PP
 
 .SS "\fBMatriz\fP * Matriz::Transposta ()"
 
 .PP
-Transposta\&. 
+Calculo da transposta da matriz atual\&. 
 .PP
 \fBReturns:\fP
 .RS 4
-
+\fBMatriz\fP transposta da matriz atual 
 .RE
 .PP
 

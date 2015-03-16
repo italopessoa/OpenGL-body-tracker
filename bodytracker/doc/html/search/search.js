@@ -7,10 +7,12 @@
 
 var indexSectionsWithContent =
 {
-  0: "_abcdgmorstw",
-  1: "mo",
-  2: "abcdgmrstw",
-  3: "_"
+  0: "_abcdegmoprstuw",
+  1: "mou",
+  2: "abcdgmorstuw",
+  3: "_",
+  4: "gr",
+  5: "ceprs"
 };
 
 var indexSectionNames =
@@ -18,7 +20,9 @@ var indexSectionNames =
   0: "all",
   1: "classes",
   2: "functions",
-  3: "variables"
+  3: "variables",
+  4: "enums",
+  5: "enumvalues"
 };
 
 function convertToId(search)

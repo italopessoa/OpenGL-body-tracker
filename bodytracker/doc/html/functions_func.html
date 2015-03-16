@@ -78,6 +78,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>All</span></a></li>
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -100,7 +102,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -150,6 +152,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>MultiplicaTransformacao()
 : <a class="el" href="class_matriz.html#adf1b06373979d8dd4074347a2f62eeb7">Matriz</a>
 </li>
+<li>Objeto3d()
+: <a class="el" href="class_objeto3d.html#af272029a83c257f9e89c9bfaba63896e">Objeto3d</a>
+</li>
 <li>RetornaValor()
 : <a class="el" href="class_matriz.html#a1b1d243308d2abe0c4a006290080d1ca">Matriz</a>
 </li>
@@ -171,6 +176,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>Transposta()
 : <a class="el" href="class_matriz.html#a4778d42de62e8d6b47a66fea73894cbd">Matriz</a>
 </li>
+<li>Utils()
+: <a class="el" href="class_utils.html#a452e78692c87ed5c7c993b6c6ac4981a">Utils</a>
+</li>
 <li>WriteData()
 : <a class="el" href="class_objeto3d.html#a95dbd1c265ace9c4596c4c96552f28e1">Objeto3d</a>
 </li>
@@ -180,7 +188,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Mar 14 2015 21:05:15 for Body Tracker by
+    <li class="footer">Generated on Mon Mar 16 2015 16:16:07 for Body Tracker by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

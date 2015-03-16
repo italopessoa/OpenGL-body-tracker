@@ -3,7 +3,7 @@
 }
 
 
-The \hyperlink{class_matriz}{Matriz} class.  
+Classe que representa uma matriz e suas operações.  
 
 
 
@@ -15,46 +15,45 @@ The \hyperlink{class_matriz}{Matriz} class.
 \item 
 \hypertarget{class_matriz_a7de756301bddbc4b0b5d2a0f2b1fc695}{\hyperlink{class_matriz_a7de756301bddbc4b0b5d2a0f2b1fc695}{Matriz} ()}\label{class_matriz_a7de756301bddbc4b0b5d2a0f2b1fc695}
 
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_matriz}{Matriz}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Construtor padrão. \end{DoxyCompactList}\item 
 \hyperlink{class_matriz_a57a8c6b672158239b429c72f4b4e316c}{Matriz} (int linha, int coluna)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_matriz}{Matriz}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Contrutor utilizado para inicializar uma matriz com suas dimensões. \end{DoxyCompactList}\item 
 \hyperlink{class_matriz}{Matriz} $\ast$ \hyperlink{class_matriz_af9f66302d01429ea558f420ba42175ab}{Multiplicar} (\hyperlink{class_matriz}{Matriz} $\ast$m)
-\begin{DoxyCompactList}\small\item\em Multiplicar. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Método utilizado para multiplica duas matrizes. \end{DoxyCompactList}\item 
 void \hyperlink{class_matriz_adf1b06373979d8dd4074347a2f62eeb7}{Multiplica\+Transformacao} (\hyperlink{class_matriz}{Matriz} $\ast$m)
-\begin{DoxyCompactList}\small\item\em Multiplica\+Transformacao. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Semelhante ao método Multiplicar. \end{DoxyCompactList}\item 
 \hyperlink{class_matriz}{Matriz} $\ast$ \hyperlink{class_matriz_ae741af63b4094d2cb146cc0cba1a376b}{Somar} (\hyperlink{class_matriz}{Matriz} $\ast$m)
-\begin{DoxyCompactList}\small\item\em Somar. \end{DoxyCompactList}\item 
-\hyperlink{class_matriz}{Matriz} $\ast$ \hyperlink{class_matriz_ab210cb033064a42d99a71f4ac5266d4d}{Subtrair} (\hyperlink{class_matriz}{Matriz} $\ast$m)
-\begin{DoxyCompactList}\small\item\em Subtrair. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Somar duas matrizes. \end{DoxyCompactList}\item 
 \hyperlink{class_matriz}{Matriz} $\ast$ \hyperlink{class_matriz_a4778d42de62e8d6b47a66fea73894cbd}{Transposta} ()
-\begin{DoxyCompactList}\small\item\em Transposta. \end{DoxyCompactList}\item 
-\hypertarget{class_matriz_a6d6e584c24c8c842054e5f1b163da4a8}{void \hyperlink{class_matriz_a6d6e584c24c8c842054e5f1b163da4a8}{Carregar\+Identidade} ()}\label{class_matriz_a6d6e584c24c8c842054e5f1b163da4a8}
-
-\begin{DoxyCompactList}\small\item\em Carregar\+Identidade. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculo da transposta da matriz atual. \end{DoxyCompactList}\item 
+\hyperlink{class_matriz}{Matriz} $\ast$ \hyperlink{class_matriz_ab210cb033064a42d99a71f4ac5266d4d}{Subtrair} (\hyperlink{class_matriz}{Matriz} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Subtrair duas matrizes. \end{DoxyCompactList}\item 
+void \hyperlink{class_matriz_a6d6e584c24c8c842054e5f1b163da4a8}{Carregar\+Identidade} ()
+\begin{DoxyCompactList}\small\item\em Preencher a matriz atual com a matriz identidade. \end{DoxyCompactList}\item 
 float \hyperlink{class_matriz_a1b1d243308d2abe0c4a006290080d1ca}{Retorna\+Valor} (int indice)
-\begin{DoxyCompactList}\small\item\em Retorna\+Valor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Buscar valor no vetor que representa a matriz. \end{DoxyCompactList}\item 
 void \hyperlink{class_matriz_a8c314e508d6c1e914934d5f1ef2de1ef}{Alterar\+Valor} (int i, double valor)
-\begin{DoxyCompactList}\small\item\em Alterar\+Valor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Alterar valor no vetor que representa a matriz. \end{DoxyCompactList}\item 
 void \hyperlink{class_matriz_a8f69fad47da1df40be3f448395c718cf}{Alterar\+Valor} (int x, int y, double valor)
-\begin{DoxyCompactList}\small\item\em Alterar\+Valor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Alterar valor utilizando coordenadas da matriz. \end{DoxyCompactList}\item 
 float \hyperlink{class_matriz_aee54b8e25924456f4edc7bf10146d877}{Buscar\+Valor} (int x, int y)
-\begin{DoxyCompactList}\small\item\em Buscar\+Valor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Buscar valor utilizando coordenadas da matriz. \end{DoxyCompactList}\item 
 int \hyperlink{class_matriz_a7e9924501f170446e0142a1fccf991a8}{Get\+Linha} ()
-\begin{DoxyCompactList}\small\item\em Get\+Linha. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Método para acessar a quantidade de linhas de uma matriz. \end{DoxyCompactList}\item 
 int \hyperlink{class_matriz_acb08d38a62492a116456d5d2a14c7b04}{Get\+Coluna} ()
-\begin{DoxyCompactList}\small\item\em Get\+Coluna. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Método para acessar a quantidade de colunas de uma matriz. \end{DoxyCompactList}\item 
 G\+Ldouble $\ast$ \hyperlink{class_matriz_aad5c44bfa49cbe5221cee329a37303f9}{Matrix\+To\+G\+L\+D\+Array} ()
-\begin{DoxyCompactList}\small\item\em Matrix\+To\+G\+L\+D\+Array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Converter matriz atual um array. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_matriz_a7727f44e3e2c55a2ea80582f9e578ef3}{std\+::vector$<$ G\+Ldouble $>$ \hyperlink{class_matriz_a7727f44e3e2c55a2ea80582f9e578ef3}{\+\_\+m}}\label{class_matriz_a7727f44e3e2c55a2ea80582f9e578ef3}
 
-\begin{DoxyCompactList}\small\item\em \+\_\+m \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Vetor que representa a matriz. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-The \hyperlink{class_matriz}{Matriz} class. 
+Classe que representa uma matriz e suas operações. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_matriz_a57a8c6b672158239b429c72f4b4e316c}{\index{Matriz@{Matriz}!Matriz@{Matriz}}
@@ -67,13 +66,13 @@ The \hyperlink{class_matriz}{Matriz} class.
 )}}\label{class_matriz_a57a8c6b672158239b429c72f4b4e316c}
 
 
-\hyperlink{class_matriz}{Matriz}. 
+Contrutor utilizado para inicializar uma matriz com suas dimensões. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em linha} & \\
+{\em linha} & Número de linhas \\
 \hline
-{\em coluna} & \\
+{\em coluna} & Número de colunas \\
 \hline
 \end{DoxyParams}
 
@@ -89,13 +88,13 @@ The \hyperlink{class_matriz}{Matriz} class.
 )}}\label{class_matriz_a8c314e508d6c1e914934d5f1ef2de1ef}
 
 
-Alterar\+Valor. 
+Alterar valor no vetor que representa a matriz. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em i} & \\
+{\em i} & Índice direto do vetor \\
 \hline
-{\em valor} & \\
+{\em valor} & Valor a ser inserido no índice do vetor \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_matriz_a8f69fad47da1df40be3f448395c718cf}{\index{Matriz@{Matriz}!Alterar\+Valor@{Alterar\+Valor}}
@@ -109,15 +108,15 @@ Alterar\+Valor.
 )}}\label{class_matriz_a8f69fad47da1df40be3f448395c718cf}
 
 
-Alterar\+Valor. 
+Alterar valor utilizando coordenadas da matriz. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em x} & \\
+{\em x} & Linha \\
 \hline
-{\em y} & \\
+{\em y} & Coluna \\
 \hline
-{\em valor} & \\
+{\em valor} & Valor a ser inserido \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_matriz_aee54b8e25924456f4edc7bf10146d877}{\index{Matriz@{Matriz}!Buscar\+Valor@{Buscar\+Valor}}
@@ -130,19 +129,33 @@ Alterar\+Valor.
 )}}\label{class_matriz_aee54b8e25924456f4edc7bf10146d877}
 
 
-Buscar\+Valor. 
+Buscar valor utilizando coordenadas da matriz. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em x} & \\
+{\em x} & Linha \\
 \hline
-{\em y} & \\
+{\em y} & Coluna \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+Valor armazenado nas coordenadas indicadas 
 \end{DoxyReturn}
-\hypertarget{class_matriz_acb08d38a62492a116456d5d2a14c7b04}{\index{Matriz@{Matriz}!Get\+Coluna@{Get\+Coluna}}
+\hypertarget{class_matriz_a6d6e584c24c8c842054e5f1b163da4a8}{\index{Matriz@{Matriz}!Carregar\+Identidade@{Carregar\+Identidade}}
+\index{Carregar\+Identidade@{Carregar\+Identidade}!Matriz@{Matriz}}
+\subsubsection[{Carregar\+Identidade}]{\setlength{\rightskip}{0pt plus 5cm}void Matriz\+::\+Carregar\+Identidade (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_matriz_a6d6e584c24c8c842054e5f1b163da4a8}
+
+
+Preencher a matriz atual com a matriz identidade. 
+
+\mbox{[}1\mbox{]}\mbox{[}0\mbox{]}\mbox{[}0\mbox{]}~\newline
+\mbox{[}0\mbox{]}\mbox{[}1\mbox{]}\mbox{[}0\mbox{]}~\newline
+\mbox{[}0\mbox{]}\mbox{[}0\mbox{]}\mbox{[}1\mbox{]}~\newline
+Podendo variar de acordo com as dimenções da matriz. \hypertarget{class_matriz_acb08d38a62492a116456d5d2a14c7b04}{\index{Matriz@{Matriz}!Get\+Coluna@{Get\+Coluna}}
 \index{Get\+Coluna@{Get\+Coluna}!Matriz@{Matriz}}
 \subsubsection[{Get\+Coluna}]{\setlength{\rightskip}{0pt plus 5cm}int Matriz\+::\+Get\+Coluna (
 \begin{DoxyParamCaption}
@@ -151,10 +164,10 @@ Buscar\+Valor.
 )}}\label{class_matriz_acb08d38a62492a116456d5d2a14c7b04}
 
 
-Get\+Coluna. 
+Método para acessar a quantidade de colunas de uma matriz. 
 
 \begin{DoxyReturn}{Returns}
-
+Quantidade de colunas da matriz 
 \end{DoxyReturn}
 \hypertarget{class_matriz_a7e9924501f170446e0142a1fccf991a8}{\index{Matriz@{Matriz}!Get\+Linha@{Get\+Linha}}
 \index{Get\+Linha@{Get\+Linha}!Matriz@{Matriz}}
@@ -165,10 +178,10 @@ Get\+Coluna.
 )}}\label{class_matriz_a7e9924501f170446e0142a1fccf991a8}
 
 
-Get\+Linha. 
+Método para acessar a quantidade de linhas de uma matriz. 
 
 \begin{DoxyReturn}{Returns}
-
+Quantidade de linhas da matriz 
 \end{DoxyReturn}
 \hypertarget{class_matriz_aad5c44bfa49cbe5221cee329a37303f9}{\index{Matriz@{Matriz}!Matrix\+To\+G\+L\+D\+Array@{Matrix\+To\+G\+L\+D\+Array}}
 \index{Matrix\+To\+G\+L\+D\+Array@{Matrix\+To\+G\+L\+D\+Array}!Matriz@{Matriz}}
@@ -179,9 +192,9 @@ Get\+Linha.
 )}}\label{class_matriz_aad5c44bfa49cbe5221cee329a37303f9}
 
 
-Matrix\+To\+G\+L\+D\+Array. 
+Converter matriz atual um array. 
 
-\begin{DoxyReturn}{Returns}
+Este método é utilizado quando for necessário um vetor G\+Ldouble \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
 \hypertarget{class_matriz_af9f66302d01429ea558f420ba42175ab}{\index{Matriz@{Matriz}!Multiplicar@{Multiplicar}}
@@ -193,15 +206,15 @@ Matrix\+To\+G\+L\+D\+Array.
 )}}\label{class_matriz_af9f66302d01429ea558f420ba42175ab}
 
 
-Multiplicar. 
+Método utilizado para multiplica duas matrizes. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em m} & \\
+{\em m} & \hyperlink{class_matriz}{Matriz} que será multiplicada pela matriz atual \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+Uma nova matriz contendo o resultado da multiplicaçao 
 \end{DoxyReturn}
 \hypertarget{class_matriz_adf1b06373979d8dd4074347a2f62eeb7}{\index{Matriz@{Matriz}!Multiplica\+Transformacao@{Multiplica\+Transformacao}}
 \index{Multiplica\+Transformacao@{Multiplica\+Transformacao}!Matriz@{Matriz}}
@@ -212,11 +225,14 @@ Multiplicar.
 )}}\label{class_matriz_adf1b06373979d8dd4074347a2f62eeb7}
 
 
-Multiplica\+Transformacao. 
+Semelhante ao método Multiplicar. 
 
+Neste método o resultado da multiplicação é salvo na matriz atual. \begin{DoxySeeAlso}{See also}
+\hyperlink{class_matriz_af9f66302d01429ea558f420ba42175ab}{Multiplicar()}; 
+\end{DoxySeeAlso}
 
 \begin{DoxyParams}{Parameters}
-{\em m} & \\
+{\em m} & \hyperlink{class_matriz}{Matriz} que será multiplicada pela matriz atual \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_matriz_a1b1d243308d2abe0c4a006290080d1ca}{\index{Matriz@{Matriz}!Retorna\+Valor@{Retorna\+Valor}}
@@ -228,15 +244,15 @@ Multiplica\+Transformacao.
 )}}\label{class_matriz_a1b1d243308d2abe0c4a006290080d1ca}
 
 
-Retorna\+Valor. 
+Buscar valor no vetor que representa a matriz. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em indice} & \\
+{\em indice} & Índice direto do vetor \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+Valor armazenado no índice indicado 
 \end{DoxyReturn}
 \hypertarget{class_matriz_ae741af63b4094d2cb146cc0cba1a376b}{\index{Matriz@{Matriz}!Somar@{Somar}}
 \index{Somar@{Somar}!Matriz@{Matriz}}
@@ -247,15 +263,15 @@ Retorna\+Valor.
 )}}\label{class_matriz_ae741af63b4094d2cb146cc0cba1a376b}
 
 
-Somar. 
+Somar duas matrizes. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em m} & \\
+{\em m} & \hyperlink{class_matriz}{Matriz} que será multiplicada a matriz atual \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+Uma nova matriz contendo o resultado da soma 
 \end{DoxyReturn}
 \hypertarget{class_matriz_ab210cb033064a42d99a71f4ac5266d4d}{\index{Matriz@{Matriz}!Subtrair@{Subtrair}}
 \index{Subtrair@{Subtrair}!Matriz@{Matriz}}
@@ -266,15 +282,15 @@ Somar.
 )}}\label{class_matriz_ab210cb033064a42d99a71f4ac5266d4d}
 
 
-Subtrair. 
+Subtrair duas matrizes. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em m} & \\
+{\em m} & \hyperlink{class_matriz}{Matriz} que será subtraída a matriz atual \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+Uma nova matriz contendo o resultado da soma 
 \end{DoxyReturn}
 \hypertarget{class_matriz_a4778d42de62e8d6b47a66fea73894cbd}{\index{Matriz@{Matriz}!Transposta@{Transposta}}
 \index{Transposta@{Transposta}!Matriz@{Matriz}}
@@ -285,10 +301,10 @@ Subtrair.
 )}}\label{class_matriz_a4778d42de62e8d6b47a66fea73894cbd}
 
 
-Transposta. 
+Calculo da transposta da matriz atual. 
 
 \begin{DoxyReturn}{Returns}
-
+\hyperlink{class_matriz}{Matriz} transposta da matriz atual 
 \end{DoxyReturn}
 
 

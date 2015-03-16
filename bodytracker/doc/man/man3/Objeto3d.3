@@ -1,101 +1,121 @@
-.TH "Objeto3d" 3 "Sat Mar 14 2015" "Version 1.0.0" "Body Tracker" \" -*- nroff -*-
+.TH "Objeto3d" 3 "Mon Mar 16 2015" "Version 1.0.0" "Body Tracker" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
 Objeto3d \- 
+.PP
+Classe que representa um objeto 3D\&.  
+
 .SH SYNOPSIS
 .br
 .PP
+.PP
+\fC#include <objeto3d\&.h>\fP
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
+.RI "\fBObjeto3d\fP ()"
+.br
+.RI "\fIConstrutor padrão\&. \fP"
+.ti -1c
 .RI "void \fBRotacionaX\fP (double teta)"
 .br
-.RI "\fIRotacionaX\&. \fP"
+.RI "\fIRotacionar o objeto no eixo X\&. \fP"
 .ti -1c
 .RI "void \fBRotacionaY\fP (double teta)"
 .br
-.RI "\fIRotacionaY\&. \fP"
+.RI "\fIRotacionar o objeto no eixo Y\&. \fP"
 .ti -1c
 .RI "void \fBRotacionaZ\fP (double teta)"
 .br
-.RI "\fIRotacionaZ\&. \fP"
+.RI "\fIRotacionar o objeto no eixo Z\&. \fP"
 .ti -1c
 .RI "void \fBDesenha\fP ()"
 .br
-.RI "\fIDesenha\&. \fP"
+.RI "\fIDesenhar objeto\&. \fP"
 .ti -1c
 .RI "GLdouble * \fBGetMatrizRotacao\fP ()"
 .br
-.RI "\fIGetMatrizRotacao\&. \fP"
+.RI "\fIRecuperar matriz de rotação atual\&. \fP"
 .ti -1c
 .RI "void \fBWriteData\fP (char *texto, GLfloat x, GLfloat y, GLfloat z)"
 .br
-.RI "\fIWriteData Desenha um texto na janela GLUT\&. \fP"
+.RI "\fIEscrever informações do objeto em um ponto da janela\&. \fP"
 .ti -1c
 .RI "void \fBAumentarEscala\fP ()"
 .br
-.RI "\fIAumentarEscala\&. \fP"
+.RI "\fIAumentar o fator de escala do objeto\&. \fP"
 .ti -1c
 .RI "void \fBDiminuirEscala\fP ()"
 .br
-.RI "\fIDiminuirEscala\&. \fP"
+.RI "\fIDiminuir o fator de escala do objeto\&. \fP"
 .in -1c
+.SH "Detailed Description"
+.PP 
+Classe que representa um objeto 3D\&. 
+
+Esta classe emgloba propriedades e operações disponíveis para um objeto 3D 
 .SH "Member Function Documentation"
 .PP 
 .SS "GLdouble * Objeto3d::GetMatrizRotacao ()"
 
 .PP
-GetMatrizRotacao\&. 
+Recuperar matriz de rotação atual\&. 
 .PP
 \fBReturns:\fP
 .RS 4
-
+Vetor contendo os valores da matriz de rotação 
 .RE
 .PP
 
 .SS "void Objeto3d::RotacionaX (doubleteta)"
 
 .PP
-RotacionaX\&. 
+Rotacionar o objeto no eixo X\&. Gerar a matrix de rotação no eixo X com o ângulo indicado 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIteta\fP 
+\fIAngulo\fP de rotação 
 .RE
 .PP
 
 .SS "void Objeto3d::RotacionaY (doubleteta)"
 
 .PP
-RotacionaY\&. 
+Rotacionar o objeto no eixo Y\&. Gerar a matrix de rotação no eixo Y com o ângulo indicado 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIteta\fP 
+\fIAngulo\fP de rotação 
 .RE
 .PP
 
 .SS "void Objeto3d::RotacionaZ (doubleteta)"
 
 .PP
-RotacionaZ\&. 
+Rotacionar o objeto no eixo Z\&. Gerar a matrix de rotação no eixo Z com o ângulo indicado 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIteta\fP 
+\fIAngulo\fP de rotação 
 .RE
 .PP
 
 .SS "void Objeto3d::WriteData (char *texto, GLfloatx, GLfloaty, GLfloatz)"
 
 .PP
-WriteData Desenha um texto na janela GLUT\&. 
+Escrever informações do objeto em um ponto da janela\&. 
 .PP
 \fBParameters:\fP
 .RS 4
-\fItexto\fP 
+\fITexto\fP a ser escrito 
+.br
+\fIx\fP Posição X onde texto objeto será desenhado 
+.br
+\fIy\fP Posição Y onde texto objeto será desenhado 
+.br
+\fIz\fP Posição Z onde texto objeto será desenhado 
 .RE
 .PP
 

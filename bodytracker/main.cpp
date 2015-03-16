@@ -5,14 +5,18 @@
 #include <string>
 #include <iostream>
 #include <objeto3d.h>
+#include <utils.h>
+
 using namespace std;
 
-enum RotationEnum {ROT_X, ROT_Y, ROT_Z, ROT_STOP};
-enum GroundTypeEnum {EMPTY, SQUARES, POLYGON};
 
+int _groundType = Utils::EMPTY;
+
+int _width = 1000;
+int _height = 600;
 double _mRotacao[16];
 
-RotationEnum _rotacao = ROT_STOP;
+int _rotacao = Utils::ROT_STOP;
 
 static Objeto3d* _torus = new Objeto3d();
 
@@ -21,11 +25,6 @@ static Objeto3d* _torus = new Objeto3d();
  */
 static double _teta;
 
-void log(std::string mensagem)
-{
-    cout << mensagem << endl;
-}
-
 /**
  * @brief DisplayInit
  */
@@ -33,9 +32,9 @@ void DisplayInit()
 {
     // Limpa a janela e o depth buffer
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glViewport(0, 0, 800, 600);
+    glViewport(0, 0, _width, _height);
 
-    const float ar = 600>0 ? (float) 800 / (float) 600 : 1.0;
+    const float ar = _height>0 ? (float) _width / (float) _height : 1.0;
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -45,6 +44,7 @@ void DisplayInit()
     glLoadIdentity();
 
     //posicao inicial da camera
+    //gluLookAt(0,90,180, 0,0,0, 0,1,0);
     gluLookAt(0,90,180, 0,0,0, 0,1,0);
 }
 
@@ -65,6 +65,36 @@ void DisplayEnd()
  * @param space
  */
 void DrawLineGround(GLfloat x, GLfloat z,int size, GLfloat space)
+{
+    glPushMatrix();
+        glBegin(GL_LINE_STRIP);
+            glVertex3f(x,0,z);
+            glVertex3f(x+size,0,z);
+            glVertex3f(x+size,0,z-size);
+            glVertex3f(x,0,z-size);
+            glVertex3f(x,0,z);
+        glEnd();
+
+        GLfloat total = size/space;
+
+        int i;
+
+        for (i = 1; i< total; i++)
+        {
+            glBegin(GL_LINES);
+                glVertex3f(x+(space*i),0,z);
+                glVertex3f(x+(space*i),0,z-size);
+            glEnd();
+
+            glBegin(GL_LINES);
+                glVertex3f(x,0,z-(space*i));
+                glVertex3f(x+size,0,z-(space*i));
+            glEnd();
+        }
+    glPopMatrix();
+}
+
+void DrawCubeGround(GLfloat x,GLfloat y, GLfloat z,int size, GLfloat space)
 {
     glPushMatrix();
         glBegin(GL_LINE_STRIP);
@@ -144,7 +174,6 @@ void DrawPolygonGround(GLfloat x, GLfloat z,int size, GLfloat space)
     glPopMatrix();
 }
 
-
 /**
  * @brief DrawGround
  * @param groundType
@@ -152,10 +181,10 @@ void DrawPolygonGround(GLfloat x, GLfloat z,int size, GLfloat space)
  * @param groundSize
  * @param space
  */
-void DrawGround(GroundTypeEnum groundType, GLint* initialPoint, int groundSize, GLfloat space)
+void DrawGround(int groundType, GLint* initialPoint, int groundSize, GLfloat space)
 {
     switch (groundType) {
-    case EMPTY:
+    case Utils::EMPTY:
         glPushMatrix();
             glBegin(GL_LINE_STRIP);
                 glVertex3f(initialPoint[0],0,initialPoint[1]);
@@ -166,11 +195,46 @@ void DrawGround(GroundTypeEnum groundType, GLint* initialPoint, int groundSize, 
             glEnd();
         glPopMatrix();
         break;
-    case SQUARES:
+    case Utils::SQUARES:
         DrawLineGround(initialPoint[0],initialPoint[1],groundSize,space);
         break;
-    case POLYGON:
+    case Utils::POLYGON:
         DrawPolygonGround(initialPoint[0],initialPoint[1],groundSize,space);
+        break;
+    case Utils::CUBE:
+        glPushMatrix();
+            glBegin(GL_LINE_STRIP);
+                glVertex3f(initialPoint[0],0,initialPoint[1]);
+                glVertex3f(initialPoint[0]+groundSize,0,initialPoint[1]);
+                glVertex3f(initialPoint[0]+groundSize,0,initialPoint[1]-groundSize);
+                glVertex3f(initialPoint[0],0,initialPoint[1]-groundSize);
+                glVertex3f(initialPoint[0],0,initialPoint[1]);
+            glEnd();
+
+            glBegin(GL_LINE_STRIP);
+                glVertex3f(initialPoint[0],0,initialPoint[1]);
+                glVertex3f(initialPoint[0],50,initialPoint[1]);
+                glVertex3f(initialPoint[0]+groundSize,50,initialPoint[1]);
+                glVertex3f(initialPoint[0]+groundSize,0,initialPoint[1]);
+            glEnd();
+
+            glBegin(GL_LINE_STRIP);
+                glVertex3f(initialPoint[0],0,initialPoint[1]-groundSize);
+                glVertex3f(initialPoint[0],50,initialPoint[1]-groundSize);
+                glVertex3f(initialPoint[0]+groundSize,50,initialPoint[1]-groundSize);
+                glVertex3f(initialPoint[0]+groundSize,0,initialPoint[1]-groundSize);
+            glEnd();
+
+            glBegin(GL_LINES);
+                glVertex3f(initialPoint[0],50,initialPoint[1]-groundSize);
+                glVertex3f(initialPoint[0],50,initialPoint[1]);
+            glEnd();
+
+            glBegin(GL_LINES);
+                glVertex3f(initialPoint[0]+groundSize,50,initialPoint[1]-groundSize);
+                glVertex3f(initialPoint[0]+groundSize,50,initialPoint[1]);
+            glEnd();
+        glPopMatrix();
         break;
     }
 }
@@ -186,12 +250,12 @@ void Draw(void)
     glColor3d(0.4,0.3,1);
 
     GLint point[2] = {-50,50};
-    DrawGround(POLYGON,point,100,3.125);
+    DrawGround(_groundType,point,100,3.125);
     glColor3d(0.4,0.3,1);
     //glPushMatrix();
 
     switch (_rotacao) {
-    case ROT_X:
+    case Utils::ROT_X:
         /*              _mRotacao[0] = 1;  _mRotacao[1] = 0;          _mRotacao[2] = 0;           _mRotacao[3] = 0;
                 _mRotacao[4] = 0;  _mRotacao[5] = cos(_teta); _mRotacao[6] = -sin(_teta); _mRotacao[7] = 0;
                 _mRotacao[8] = 0;  _mRotacao[9] = sin(_teta); _mRotacao[10] = cos(_teta); _mRotacao[11] = 0;
@@ -199,7 +263,7 @@ void Draw(void)
 */
         //_torus->RotacionaX(_teta);
         break;
-    case ROT_Y:
+    case Utils::ROT_Y:
         /*_mRotacao[0] = cos(_teta); _mRotacao[1] = 0;  _mRotacao[2] = sin(_teta);  _mRotacao[3] = 0;
                 _mRotacao[4] = 0;          _mRotacao[5] = 1;  _mRotacao[6] = 0;           _mRotacao[7] = 0;
                 _mRotacao[8] = -sin(_teta);_mRotacao[9] = 0;  _mRotacao[10] = cos(_teta); _mRotacao[11] = 0;
@@ -207,7 +271,7 @@ void Draw(void)
                 break;*/
         //_torus->RotacionaY(_teta);
         break;
-    case ROT_Z:
+    case Utils::ROT_Z:
         /*_mRotacao[0] = cos(_teta); _mRotacao[1] = -sin(_teta); _mRotacao[2] =     _mRotacao[3] = 0;
                 _mRotacao[4] = sin(_teta); _mRotacao[5] = cos(_teta);  _mRotacao[6] =     _mRotacao[7] = 0;
                 _mRotacao[8] = 0;          _mRotacao[9] = 0;           _mRotacao[10] = 1; _mRotacao[11] = 0;
@@ -223,10 +287,10 @@ void Draw(void)
     _torus->RotacionaY(_teta);
     _torus->RotacionaZ(_teta);
     //glPushMatrix();
-        //glMultTransposeMatrixd(_torus->GetMatrizRotacao());
+    //glMultTransposeMatrixd(_torus->GetMatrizRotacao());
     _torus->Desenha();
-        //glPushMatrix();
-        //glPopMatrix();
+    //glPushMatrix();
+    //glPopMatrix();
     //glPopMatrix();
 
 
@@ -249,55 +313,36 @@ void KeyBoard(unsigned char key, int, int)
 {
     switch (key)
     {
-        case 27 :
-            exit(0);
-        case 'x':
-            log("eixo de rotação = x");
-            _rotacao = ROT_X;
+    case 27 :
+        exit(0);
+    case 'x':
+        _rotacao = Utils::ROT_X;
         break;
-        case 'y':
-            log("eixo de rotação = y");
-            _rotacao = ROT_Y;
+    case 'y':
+        _rotacao = Utils::ROT_Y;
         break;
-        case 'z':
-            log("eixo de rotação = z");
-            _rotacao = ROT_Z;
+    case 'z':
+        _rotacao = Utils::ROT_Z;
         break;
-        case '+':
-            _teta += 0.01;
-            cout << "teta = " << _teta << endl;
+    case '+':
+        _teta += 0.01;
+        cout << "teta = " << _teta << endl;
         break;
-        case '-':
-            _teta -= 0.01;
-            cout << "teta = " << _teta << endl;
+    case '-':
+        _teta -= 0.01;
+        cout << "teta = " << _teta << endl;
         break;
-        case 'm':
-
-            cout << "[" << _torus->GetMatrizRotacao()[0] << "]" <<
-                    "[" << _torus->GetMatrizRotacao()[1] << "]" <<
-                    "[" << _torus->GetMatrizRotacao()[2] << "]" <<
-                    "[" << _torus->GetMatrizRotacao()[3] << "]" << endl;
-
-            cout << "[" << _torus->GetMatrizRotacao()[4] << "]" <<
-                    "[" << _torus->GetMatrizRotacao()[5] << "]" <<
-                    "[" << _torus->GetMatrizRotacao()[6] << "]" <<
-                    "[" << _torus->GetMatrizRotacao()[7] << "]" << endl;
-
-            cout << "[" << _torus->GetMatrizRotacao()[8] << "]" <<
-                    "[" << _torus->GetMatrizRotacao()[9] << "]" <<
-                    "[" << _torus->GetMatrizRotacao()[10] << "]" <<
-                    "[" << _torus->GetMatrizRotacao()[11] << "]" << endl;
-
-            cout << "[" << _torus->GetMatrizRotacao()[12] << "]" <<
-                    "[" << _torus->GetMatrizRotacao()[13] << "]" <<
-                    "[" << _torus->GetMatrizRotacao()[14] << "]" <<
-                    "[" << _torus->GetMatrizRotacao()[15] << "]" << endl;
+    case 'S':
+        _torus->AumentarEscala();
         break;
-        case 'S':
-            _torus->AumentarEscala();
+    case 's':
+        _torus->DiminuirEscala();
         break;
-        case 's':
-            _torus->DiminuirEscala();
+    case 'F':
+        glutFullScreen();
+        break;
+    case 'f':
+        glutReshapeWindow(_width,_height);
         break;
     }
 
@@ -333,6 +378,89 @@ void GlutLightSetup()
 }
 
 /**
+ * @brief Reshape
+ * @param width
+ * @param height
+ */
+void Reshape(int width, int height)
+{
+    _width = width;
+    _height = height;
+    glutPostRedisplay();
+}
+
+/**
+ * @brief MenuGround
+ * @param option
+ */
+void MenuGround(int option)
+{
+    switch(option) {
+    case 0:
+        _groundType = Utils::EMPTY;
+        break;
+    case 1:
+        _groundType = Utils::SQUARES;
+        break;
+    case 2:
+        _groundType = Utils::POLYGON;
+        break;
+    case 3:
+        _groundType = Utils::CUBE;
+        break;
+    }
+    glutPostRedisplay();
+}
+
+/**
+ * @brief MenuPrincipal
+ * @param option
+ */
+void MenuPrincipal(int option)
+{
+
+}
+
+/**
+ * @brief CreateMenu
+ */
+void CreateMenu()
+{
+    int subMenuGround;/*mainMenu,*/
+
+    subMenuGround = glutCreateMenu(MenuGround);
+    glutAddMenuEntry("Empty",0);
+    glutAddMenuEntry("Square",1);
+    glutAddMenuEntry("Polygon",2);
+    glutAddMenuEntry("Cube",3);
+
+    //mainMenu = glutCreateMenu(MenuPrincipal);
+    glutCreateMenu(MenuPrincipal);
+    glutAddSubMenu("Chao",subMenuGround);
+
+    glutAttachMenu(GLUT_RIGHT_BUTTON);
+}
+
+/**
+ * @brief MouseManager
+ * @param button
+ * @param state
+ * @param x
+ * @param y
+ */
+void MouseManager(int button, int state, int x, int y)
+{
+    if (button == GLUT_RIGHT_BUTTON)
+    {
+        if (state == GLUT_DOWN)
+        {
+            CreateMenu();
+        }
+    }
+    glutPostRedisplay();
+}
+
+/**
  * @brief Configuração inicial do glut.
  * @param argc Numero de argumentos.
  * @param argv Vetor de caracteres contendo as opções de configuração.
@@ -341,12 +469,14 @@ void GlutSetup(int argc, char *argv[])
 {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(800,600);
+    glutInitWindowSize(_width,_height);
     glutInitWindowPosition(0,0);
     glutCreateWindow("Visualizacao 3D");
     glutDisplayFunc(Draw);
     glutKeyboardFunc(KeyBoard);
+    glutReshapeFunc(Reshape);
     glutIdleFunc(idle);
+    glutMouseFunc(MouseManager);
     //cor utilizada para pintar toda a tela
     glClearColor(1,1,1,1);
 
@@ -367,10 +497,6 @@ void GlutSetup(int argc, char *argv[])
 int main(int argc, char *argv[])
 {
     GlutSetup(argc, argv);
-
     glutMainLoop();
-    /*Objeto3d* a  = new Objeto3d();
-
-    a->RotacionaX(90);*/
 }
 
