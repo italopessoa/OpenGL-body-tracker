@@ -15,15 +15,15 @@ int _groundType = Utils::EMPTY;
 int _width = 1000;
 int _height = 600;
 double _mRotacao[16];
-
+GLfloat _vetorTranslacao[3];
 int _rotacao = Utils::ROT_STOP;
 
 static Objeto3d* _torus = new Objeto3d();
 
 /**
- * @brief _teta angulo de rotação
+ * @brief _theta angulo de rotação
  */
-static double _teta;
+static double _theta;
 
 /**
  * @brief DisplayInit
@@ -257,35 +257,36 @@ void Draw(void)
     switch (_rotacao) {
     case Utils::ROT_X:
         /*              _mRotacao[0] = 1;  _mRotacao[1] = 0;          _mRotacao[2] = 0;           _mRotacao[3] = 0;
-                _mRotacao[4] = 0;  _mRotacao[5] = cos(_teta); _mRotacao[6] = -sin(_teta); _mRotacao[7] = 0;
-                _mRotacao[8] = 0;  _mRotacao[9] = sin(_teta); _mRotacao[10] = cos(_teta); _mRotacao[11] = 0;
+                _mRotacao[4] = 0;  _mRotacao[5] = cos(_theta); _mRotacao[6] = -sin(_theta); _mRotacao[7] = 0;
+                _mRotacao[8] = 0;  _mRotacao[9] = sin(_theta); _mRotacao[10] = cos(_theta); _mRotacao[11] = 0;
                 _mRotacao[12] = 0; _mRotacao[13] = 0;         _mRotacao[14] = 0;          _mRotacao[15] = 1;
 */
-        //_torus->RotacionaX(_teta);
+        //_torus->RotacionaX(_theta);
         break;
     case Utils::ROT_Y:
-        /*_mRotacao[0] = cos(_teta); _mRotacao[1] = 0;  _mRotacao[2] = sin(_teta);  _mRotacao[3] = 0;
+        /*_mRotacao[0] = cos(_theta); _mRotacao[1] = 0;  _mRotacao[2] = sin(_theta);  _mRotacao[3] = 0;
                 _mRotacao[4] = 0;          _mRotacao[5] = 1;  _mRotacao[6] = 0;           _mRotacao[7] = 0;
-                _mRotacao[8] = -sin(_teta);_mRotacao[9] = 0;  _mRotacao[10] = cos(_teta); _mRotacao[11] = 0;
+                _mRotacao[8] = -sin(_theta);_mRotacao[9] = 0;  _mRotacao[10] = cos(_theta); _mRotacao[11] = 0;
                 _mRotacao[12] = 0;         _mRotacao[13] = 0; _mRotacao[14] = 0;          _mRotacao[15] = 1;
                 break;*/
-        //_torus->RotacionaY(_teta);
+        //_torus->RotacionaY(_theta);
         break;
     case Utils::ROT_Z:
-        /*_mRotacao[0] = cos(_teta); _mRotacao[1] = -sin(_teta); _mRotacao[2] =     _mRotacao[3] = 0;
-                _mRotacao[4] = sin(_teta); _mRotacao[5] = cos(_teta);  _mRotacao[6] =     _mRotacao[7] = 0;
+        /*_mRotacao[0] = cos(_theta); _mRotacao[1] = -sin(_theta); _mRotacao[2] =     _mRotacao[3] = 0;
+                _mRotacao[4] = sin(_theta); _mRotacao[5] = cos(_theta);  _mRotacao[6] =     _mRotacao[7] = 0;
                 _mRotacao[8] = 0;          _mRotacao[9] = 0;           _mRotacao[10] = 1; _mRotacao[11] = 0;
                 _mRotacao[12] = 0;         _mRotacao[13] = 0;          _mRotacao[14] = 0; _mRotacao[15] = 1;
                 */
-        //_torus->RotacionaZ(_teta);
+        //_torus->RotacionaZ(_theta);
         break;
     default:
         break;
     }
 
-    _torus->RotacionaX(_teta);
-    _torus->RotacionaY(_teta);
-    _torus->RotacionaZ(_teta);
+    _torus->RotacionaX(_theta);
+    _torus->RotacionaY(_theta);
+    _torus->RotacionaZ(_theta);
+    _torus->Translada(_vetorTranslacao);
     //glPushMatrix();
     //glMultTransposeMatrixd(_torus->GetMatrizRotacao());
     _torus->Desenha();
@@ -311,6 +312,7 @@ void idle(void)
  */
 void KeyBoard(unsigned char key, int, int)
 {
+    cout << key << endl;
     switch (key)
     {
     case 27 :
@@ -325,12 +327,12 @@ void KeyBoard(unsigned char key, int, int)
         _rotacao = Utils::ROT_Z;
         break;
     case '+':
-        _teta += 0.01;
-        cout << "teta = " << _teta << endl;
+        _theta += 0.01;
+        cout << "theta = " << _theta << endl;
         break;
     case '-':
-        _teta -= 0.01;
-        cout << "teta = " << _teta << endl;
+        _theta -= 0.01;
+        cout << "theta = " << _theta << endl;
         break;
     case 'S':
         _torus->AumentarEscala();
@@ -343,6 +345,37 @@ void KeyBoard(unsigned char key, int, int)
         break;
     case 'f':
         glutReshapeWindow(_width,_height);
+        break;
+    /*TRANSLACAO z*/
+    case '8':
+        _vetorTranslacao[2] -= 1;
+        break;
+    case '2':
+        _vetorTranslacao[2] += 1;
+        break;
+    /*TRANSLACAO x*/
+    case '4':
+        _vetorTranslacao[0] -= 1;
+        break;
+    case '6':
+        _vetorTranslacao[0] += 1;
+        break;
+    /*TRANSLACAO Y*/
+    case '7':
+        _vetorTranslacao[1] += 0.3;
+        break;
+    case '1':
+        _vetorTranslacao[1] -= 0.3;
+        break;
+    /*PARAR TRANSLACAO*/
+    case '5':
+        _vetorTranslacao[0] =_vetorTranslacao[1]=_vetorTranslacao[2]=0;
+        break;
+    case 'r':
+        if(glutGetModifiers() == GLUT_ACTIVE_ALT)
+        {
+            _torus->Reiniciar();
+        }
         break;
     }
 

@@ -1,0 +1,68 @@
+\begin{theindex}
+
+  \item {C\+U\+B\+E}
+    \subitem {Utils}, \hyperpage{9}
+
+  \indexspace
+
+  \item {E\+M\+P\+T\+Y}
+    \subitem {Utils}, \hyperpage{9}
+
+  \indexspace
+
+  \item {Matriz}, \hyperpage{3}
+    \subitem {Matriz}, \hyperpage{4}
+    \subitem {Multiplicar}, \hyperpage{5}
+    \subitem {Somar}, \hyperpage{6}
+    \subitem {Subtrair}, \hyperpage{6}
+    \subitem {Transposta}, \hyperpage{6}
+  \item {Multiplicar}
+    \subitem {Matriz}, \hyperpage{5}
+
+  \indexspace
+
+  \item {Objeto3d}, \hyperpage{7}
+
+  \indexspace
+
+  \item {P\+O\+L\+Y\+G\+O\+N}
+    \subitem {Utils}, \hyperpage{9}
+
+  \indexspace
+
+  \item {R\+O\+T\+\_\+\+S\+T\+O\+P}
+    \subitem {Utils}, \hyperpage{9}
+  \item {R\+O\+T\+\_\+\+X}
+    \subitem {Utils}, \hyperpage{9}
+  \item {R\+O\+T\+\_\+\+Y}
+    \subitem {Utils}, \hyperpage{9}
+  \item {R\+O\+T\+\_\+\+Z}
+    \subitem {Utils}, \hyperpage{9}
+
+  \indexspace
+
+  \item {S\+Q\+U\+A\+R\+E\+S}
+    \subitem {Utils}, \hyperpage{9}
+  \item {Somar}
+    \subitem {Matriz}, \hyperpage{6}
+  \item {Subtrair}
+    \subitem {Matriz}, \hyperpage{6}
+
+  \indexspace
+
+  \item {Transposta}
+    \subitem {Matriz}, \hyperpage{6}
+
+  \indexspace
+
+  \item {Utils}, \hyperpage{8}
+    \subitem {C\+U\+B\+E}, \hyperpage{9}
+    \subitem {E\+M\+P\+T\+Y}, \hyperpage{9}
+    \subitem {P\+O\+L\+Y\+G\+O\+N}, \hyperpage{9}
+    \subitem {R\+O\+T\+\_\+\+S\+T\+O\+P}, \hyperpage{9}
+    \subitem {R\+O\+T\+\_\+\+X}, \hyperpage{9}
+    \subitem {R\+O\+T\+\_\+\+Y}, \hyperpage{9}
+    \subitem {R\+O\+T\+\_\+\+Z}, \hyperpage{9}
+    \subitem {S\+Q\+U\+A\+R\+E\+S}, \hyperpage{9}
+
+\end{theindex}

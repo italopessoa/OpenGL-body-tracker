@@ -1,4 +1,4 @@
-.TH "Objeto3d" 3 "Mon Mar 16 2015" "Version 1.0.0" "Body Tracker" \" -*- nroff -*-
+.TH "Objeto3d" 3 "Tue Mar 17 2015" "Version 1.0.0" "Body Tracker" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -19,17 +19,21 @@ Classe que representa um objeto 3D\&.
 .br
 .RI "\fIConstrutor padrão\&. \fP"
 .ti -1c
-.RI "void \fBRotacionaX\fP (double teta)"
+.RI "void \fBRotacionaX\fP (double theta)"
 .br
 .RI "\fIRotacionar o objeto no eixo X\&. \fP"
 .ti -1c
-.RI "void \fBRotacionaY\fP (double teta)"
+.RI "void \fBRotacionaY\fP (double theta)"
 .br
 .RI "\fIRotacionar o objeto no eixo Y\&. \fP"
 .ti -1c
-.RI "void \fBRotacionaZ\fP (double teta)"
+.RI "void \fBRotacionaZ\fP (double theta)"
 .br
 .RI "\fIRotacionar o objeto no eixo Z\&. \fP"
+.ti -1c
+.RI "void \fBTranslada\fP (GLfloat *vetorTranslacao)"
+.br
+.RI "\fITransladar objeto nas coordenadas x,y e z\&. \fP"
 .ti -1c
 .RI "void \fBDesenha\fP ()"
 .br
@@ -50,6 +54,10 @@ Classe que representa um objeto 3D\&.
 .RI "void \fBDiminuirEscala\fP ()"
 .br
 .RI "\fIDiminuir o fator de escala do objeto\&. \fP"
+.ti -1c
+.RI "void \fBReiniciar\fP ()"
+.br
+.RI "\fIRetorna ao estado inicial do objeto\&. \fP"
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -69,36 +77,47 @@ Vetor contendo os valores da matriz de rotação
 .RE
 .PP
 
-.SS "void Objeto3d::RotacionaX (doubleteta)"
+.SS "void Objeto3d::RotacionaX (doubletheta)"
 
 .PP
 Rotacionar o objeto no eixo X\&. Gerar a matrix de rotação no eixo X com o ângulo indicado 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIAngulo\fP de rotação 
+\fItheta\fP Angulo de rotação 
 .RE
 .PP
 
-.SS "void Objeto3d::RotacionaY (doubleteta)"
+.SS "void Objeto3d::RotacionaY (doubletheta)"
 
 .PP
 Rotacionar o objeto no eixo Y\&. Gerar a matrix de rotação no eixo Y com o ângulo indicado 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIAngulo\fP de rotação 
+\fItheta\fP Angulo de rotação 
 .RE
 .PP
 
-.SS "void Objeto3d::RotacionaZ (doubleteta)"
+.SS "void Objeto3d::RotacionaZ (doubletheta)"
 
 .PP
 Rotacionar o objeto no eixo Z\&. Gerar a matrix de rotação no eixo Z com o ângulo indicado 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIAngulo\fP de rotação 
+\fItheta\fP Angulo de rotação 
+.RE
+.PP
+
+.SS "void Objeto3d::Translada (GLfloat *vetorTranslacao)"
+
+.PP
+Transladar objeto nas coordenadas x,y e z\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvetorTranslacao\fP Vetor contendo os valores de translação 
 .RE
 .PP
 

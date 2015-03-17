@@ -1,6 +1,6 @@
 #include "matriz.h"
 #include <stdexcept>
-
+#include <iostream>
 using namespace std;
 
 Matriz::Matriz(int linha, int coluna)
@@ -153,7 +153,12 @@ void Matriz::CarregarIdentidade()
 {
     if(_linha != _coluna)
     {
-        throw std::invalid_argument( "Matriz::CarregarIdentidade - a matriz informada é não é quadrada" );
+        throw std::invalid_argument( "Matriz::CarregarIdentidade - a matriz informada não é quadrada" );
+    }
+
+    for (int j = _m.size()-1; j >-1; j--)
+    {
+        _m[j] = 0;
     }
 
     for (int i = 0; i < _linha; i++)

@@ -24,25 +24,31 @@ public:
      * @brief Rotacionar o objeto no eixo X
      *
      * Gerar a matrix de rotação no eixo X com o ângulo indicado
-     * @param Angulo de rotação
+     * @param theta Angulo de rotação
      */
-    void RotacionaX(double teta);
+    void RotacionaX(double theta);
 
     /**
      * @brief Rotacionar o objeto no eixo Y
      *
      * Gerar a matrix de rotação no eixo Y com o ângulo indicado
-     * @param Angulo de rotação
+     * @param theta Angulo de rotação
      */
-    void RotacionaY(double teta);
+    void RotacionaY(double theta);
 
     /**
      * @brief Rotacionar o objeto no eixo Z
      *
      * Gerar a matrix de rotação no eixo Z com o ângulo indicado
-     * @param Angulo de rotação
+     * @param theta Angulo de rotação
      */
-    void RotacionaZ(double teta);
+    void RotacionaZ(double theta);
+
+    /**
+     * @brief Transladar objeto nas coordenadas x,y e z
+     * @param vetorTranslacao Vetor contendo os valores de translação
+     */
+    void Translada(GLfloat* vetorTranslacao);
 
     /**
      * @brief Desenhar objeto
@@ -74,6 +80,10 @@ public:
      */
     void DiminuirEscala();
 
+    /**
+     * @brief Retorna ao estado inicial do objeto
+     */
+    void Reiniciar();
 private:
 
     /**
@@ -113,7 +123,7 @@ private:
     /**
      * @brief Ângulo de rotação do objeto em relação a um eixo
      */
-    double _teta;
+    double _theta;
 
     /**
      * @brief Fator de escala

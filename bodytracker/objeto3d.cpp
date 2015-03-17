@@ -32,63 +32,69 @@ Objeto3d::~Objeto3d()
 }
 
 
-void Objeto3d::RotacionaX(double teta)
+void Objeto3d::RotacionaX(double theta)
 {
     /*_rotacaoAuxiliar->CarregarIdentidade();
-    _rotacaoAuxiliar->AlterarValor(5,cos(teta));
-    _rotacaoAuxiliar->AlterarValor(6,-sin(teta));
-    _rotacaoAuxiliar->AlterarValor(9,sin(teta));
-    _rotacaoAuxiliar->AlterarValor(10,cos(teta));
+    _rotacaoAuxiliar->AlterarValor(5,cos(theta));
+    _rotacaoAuxiliar->AlterarValor(6,-sin(theta));
+    _rotacaoAuxiliar->AlterarValor(9,sin(theta));
+    _rotacaoAuxiliar->AlterarValor(10,cos(theta));
     _rotacao->MultiplicaTransformacao(_rotacaoAuxiliar);
     rx->CarregarIdentidade();
     */
-    _teta = teta;
+    _theta = theta;
     //configurar matriz de rotacao no eixo X
-    _rotX->AlterarValor(5,cos(teta));
-    _rotX->AlterarValor(6,-sin(teta));
-    _rotX->AlterarValor(9,sin(teta));
-    _rotX->AlterarValor(10,cos(teta));
+    _rotX->AlterarValor(5,cos(theta));
+    _rotX->AlterarValor(6,-sin(theta));
+    _rotX->AlterarValor(9,sin(theta));
+    _rotX->AlterarValor(10,cos(theta));
 }
 
-void Objeto3d::RotacionaY(double teta)
+void Objeto3d::RotacionaY(double theta)
 {
     /*_rotacaoAuxiliar->CarregarIdentidade();
-    _rotacaoAuxiliar->AlterarValor(0,cos(teta));
-    _rotacaoAuxiliar->AlterarValor(2,-sin(teta));
-    _rotacaoAuxiliar->AlterarValor(8,sin(teta));
-    _rotacaoAuxiliar->AlterarValor(10,cos(teta));
+    _rotacaoAuxiliar->AlterarValor(0,cos(theta));
+    _rotacaoAuxiliar->AlterarValor(2,-sin(theta));
+    _rotacaoAuxiliar->AlterarValor(8,sin(theta));
+    _rotacaoAuxiliar->AlterarValor(10,cos(theta));
 
     _rotacao->MultiplicaTransformacao(_rotacaoAuxiliar);
     */
-    _teta = teta;
+    _theta = theta;
     //montar matriz de rotacao em torno do eixo x
-    _rotY->AlterarValor(0,cos(teta));
-    _rotY->AlterarValor(2,-sin(teta));
-    _rotY->AlterarValor(8,sin(teta));
-    _rotY->AlterarValor(10,cos(teta));
+    _rotY->AlterarValor(0,cos(theta));
+    _rotY->AlterarValor(2,-sin(theta));
+    _rotY->AlterarValor(8,sin(theta));
+    _rotY->AlterarValor(10,cos(theta));
 }
 
-void Objeto3d::RotacionaZ(double teta)
+void Objeto3d::RotacionaZ(double theta)
 {
     /*
    _rotacaoAuxiliar->CarregarIdentidade();
-    _rotacaoAuxiliar->AlterarValor(0,cos(teta));
-    _rotacaoAuxiliar->AlterarValor(1,-sin(teta));
-    _rotacaoAuxiliar->AlterarValor(4,sin(teta));
-    _rotacaoAuxiliar->AlterarValor(5,cos(teta));
+    _rotacaoAuxiliar->AlterarValor(0,cos(theta));
+    _rotacaoAuxiliar->AlterarValor(1,-sin(theta));
+    _rotacaoAuxiliar->AlterarValor(4,sin(theta));
+    _rotacaoAuxiliar->AlterarValor(5,cos(theta));
 
     _rotacao->MultiplicaTransformacao(_rotacaoAuxiliar);
 
     _rotacaoAuxiliar->MultiplicaTransformacao();
     */
 
-    _teta = teta;
+    _theta = theta;
     //montar matriz de rotacao em torno do eixo z
-    _rotZ->AlterarValor(0,cos(teta));
-    _rotZ->AlterarValor(1,-sin(teta));
-    _rotZ->AlterarValor(4,sin(teta));
-    _rotZ->AlterarValor(5,cos(teta));
+    _rotZ->AlterarValor(0,cos(theta));
+    _rotZ->AlterarValor(1,-sin(theta));
+    _rotZ->AlterarValor(4,sin(theta));
+    _rotZ->AlterarValor(5,cos(theta));
+}
 
+void Objeto3d::Translada(GLfloat* vetorTranslacao)
+{
+    _rotacao->AlterarValor(3,vetorTranslacao[0] + _rotacao->_m[3]); //tx' + tx
+    _rotacao->AlterarValor(7,vetorTranslacao[1] + _rotacao->_m[7]); //ty' + ty
+    _rotacao->AlterarValor(11,vetorTranslacao[2] + _rotacao->_m[11]);//tz' + tz
 }
 
 void Objeto3d::Desenha()
@@ -149,7 +155,6 @@ GLdouble* Objeto3d::GetMatrizRotacao()
     //_rotacao->AlterarValor(1,3,30);
     //_rotacao->AlterarValor(2,3,-60);
 
-
     //diminuir o tamanho
 
     //_rotacao->AlterarValor(3,3,2.5);
@@ -158,15 +163,13 @@ GLdouble* Objeto3d::GetMatrizRotacao()
     return _rotacao->MatrixToGLDArray();
 }
 
-
 void Objeto3d::WriteData(char *texto, GLfloat x, GLfloat y, GLfloat z)
 {
-
-            // Posição no universo onde o texto será colocado
-            glRasterPos3f(x,y,z);
-            // Exibe caracter a caracter
-            while(*texto)
-                 glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,*texto++);
+    // Posição no universo onde o texto será colocado
+    glRasterPos3f(x,y,z);
+    // Exibe caracter a caracter
+    while(*texto)
+         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,*texto++);
 }
 
 void Objeto3d::AumentarEscala()
@@ -186,4 +189,9 @@ void Objeto3d::DiminuirEscala()
         _fatorEscala -= ESCALA;
     }
     _rotacao->_m[0] = _rotacao->_m[5] = _rotacao->_m[10] = _fatorEscala;
+}
+
+void Objeto3d::Reiniciar()
+{
+    _rotacao->CarregarIdentidade();
 }
