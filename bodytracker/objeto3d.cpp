@@ -100,6 +100,7 @@ void Objeto3d::Translada(GLfloat* vetorTranslacao)
 void Objeto3d::Desenha()
 {
     glPushMatrix();
+
         glMultTransposeMatrixd(this->GetMatrizRotacao());
         //glMultTransposeMatrixd(_rotacao->MatrixToGLDArray());
         //glutSolidTorus(8/*innerRadius*/
@@ -107,8 +108,25 @@ void Objeto3d::Desenha()
                        //,152/*sides*/
                        //,5/*rings*/);
 
-        glutSolidSphere(30,150,110);
+        /*glPushMatrix();
+            glColor3d(1,0,0);
+            glTranslated(0,0,0);
+            glutSolidTorus(4.5,15,152,105);
+        glPopMatrix();
 
+        glPushMatrix();
+            glColor3d(0,0,1);
+            glRotated(90,1,0,0);
+            glTranslated(10,00,0);
+            glutSolidTorus(4.5,15,152,105);
+        glPopMatrix();*/
+
+
+        //glutSolidTorus(4.5,15,152,5);
+        glutSolidSphere(20,15,15);
+        //glutSolidSphere(30,150,110);
+
+        //aneis e satelites
         glPushMatrix();
             glColor3d(0.4,0.4,0.4);
             glutSolidTorus(10,70,2,120);
@@ -159,7 +177,15 @@ GLdouble* Objeto3d::GetMatrizRotacao()
 
     //_rotacao->AlterarValor(3,3,2.5);
 
+    _mEscala->_m[0] = _mEscala->_m[5] = _mEscala->_m[10] = _fatorEscala;
+
     _rotacao->MultiplicaTransformacao(_mEscala);
+
+    //retorna escala para identidade
+    _mEscala->_m[0] = _mEscala->_m[5] = _mEscala->_m[10] = 1;
+    //retornar escala para valor padrao para que possa ser aplicado o valor
+    //correspondente ao tamanho atual
+    _fatorEscala = 1;
     return _rotacao->MatrixToGLDArray();
 }
 
@@ -175,7 +201,7 @@ void Objeto3d::WriteData(char *texto, GLfloat x, GLfloat y, GLfloat z)
 void Objeto3d::AumentarEscala()
 {
     _fatorEscala += ESCALA;
-    _rotacao->_m[0] = _rotacao->_m[5] = _rotacao->_m[10] = _fatorEscala;
+    //_rotacao->_m[0] = _rotacao->_m[5] = _rotacao->_m[10] = _fatorEscala;
 }
 
 void Objeto3d::DiminuirEscala()
@@ -188,7 +214,7 @@ void Objeto3d::DiminuirEscala()
     {
         _fatorEscala -= ESCALA;
     }
-    _rotacao->_m[0] = _rotacao->_m[5] = _rotacao->_m[10] = _fatorEscala;
+    //_rotacao->_m[0] = _rotacao->_m[5] = _rotacao->_m[10] = _fatorEscala;
 }
 
 void Objeto3d::Reiniciar()
