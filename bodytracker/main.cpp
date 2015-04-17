@@ -6,9 +6,10 @@
 #include <iostream>
 #include <objeto3d.h>
 #include <utils.h>
+#include <camera.h>
 
 using namespace std;
-
+#define MAX_ARVORE 10
 
 int _groundType = Utils::EMPTY;
 
@@ -18,12 +19,22 @@ double _mRotacao[16];
 GLfloat _vetorTranslacao[3];
 int _rotacao = Utils::ROT_STOP;
 
+Camera _camera;
+
 static Objeto3d* _torus = new Objeto3d();
 
 /**
  * @brief _theta angulo de rotação
  */
 static double _theta;
+
+GLdouble _thetaY=_height/180.0;
+GLdouble _thetaX=_width/180.0;
+int _lastYMouse,_lastXMouse;
+
+float camAngleX=0;
+float camAngleY=-10;
+float distancia=10;
 
 /**
  * @brief DisplayInit
@@ -43,9 +54,26 @@ void DisplayInit()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
+
+//http://gamedev.stackexchange.com/questions/20758/how-can-i-orbit-a-camera-about-its-target-point
+    //http://stackoverflow.com/questions/287655/opengl-rotating-a-camera-around-a-point
+    // Calculate the camera position using the distance and angles
+    float camX = distancia * -sinf(camAngleX*(M_PI/180)) * cosf((camAngleY)*(M_PI/180));
+    float camY = distancia * -sinf((camAngleY)*(M_PI/180));
+    float camZ = -distancia * cosf((camAngleX)*(M_PI/180)) * cosf((camAngleY)*(M_PI/180));
+    //cout << "camY: " << camY<< endl;
+//cout << "camX: " << camX << "camY: " << camY << "camZ: " << camZ << endl;
+    // Set the camera position and lookat point
+    gluLookAt(camX,camY,camZ,   // Camera position
+              0.0, 0.0, 0.0,    // Look at point
+              0.0, 1.0, 0.0);
+
+
     //posicao inicial da camera
     //gluLookAt(0,90,180, 0,0,0, 0,1,0);
-    gluLookAt(0,90,180, 0,0,0, 0,1,0);
+    /*gluLookAt(_camera.eye[0], _camera.eye[1],_camera.eye[2],
+            _camera.center[0], _camera.center[1],_camera.center[2],
+            _camera.up[0], _camera.up[1],_camera.up[2]);*/
 }
 
 /**
@@ -239,6 +267,54 @@ void DrawGround(int groundType, GLint* initialPoint, int groundSize, GLfloat spa
     }
 }
 
+GLdouble fatorP=1.4;
+int tArvore = 0;
+
+void ArvorePitagoras(GLdouble cubo,GLdouble r, GLdouble tx, GLdouble ty,int size )
+{
+    if(tArvore > 0)
+    {
+        int sizeD=size;
+        int sizeE=size;
+        glPushMatrix();
+            glutSolidCube(cubo);
+            if(sizeD <=tArvore)
+            {
+                glPushMatrix();
+                    glRotated(r,0,0,1);
+                    glTranslated(tx,ty,0);
+                    if(sizeD >5){
+                        glColor3d(0,0.7,0.99);
+                    }else
+                    {
+                        glColor3d(1,0,0);
+                    }
+
+                    glutSolidCube(cubo/1.4);
+                    ArvorePitagoras(cubo/fatorP,45,tx/fatorP,ty/fatorP,++sizeD);
+                glPopMatrix();
+            }
+            if(sizeE <= tArvore)
+            {
+                glPushMatrix();
+                    glRotated(-r,0,0,1);
+                    glTranslated(-tx,ty,0);
+                    if(sizeE >5){
+                        glColor3d(0.8,1,0.1);
+                    }else
+                    {
+                        glColor3d(0,1,0);
+                    }
+                    glutSolidCube(cubo/1.4);
+                    ArvorePitagoras(cubo/fatorP,45,tx/fatorP,ty/fatorP,++sizeE);
+                glPopMatrix();
+            }
+        glPopMatrix();
+    }
+}
+
+
+
 /**
  * @brief Função callback chamada para fazer o desenho.
  *
@@ -283,13 +359,25 @@ void Draw(void)
         break;
     }
 
+    glPushMatrix();
+        ArvorePitagoras(1*10,45,0.35*10,1.058*10,0);
+    glPopMatrix();
+
+    glPushMatrix();
+        glRotated(90,0,1,0);
+        ArvorePitagoras(1*10,45,0.35*10,1.058*10,0);
+    glPopMatrix();
+
     _torus->RotacionaX(_theta);
     _torus->RotacionaY(_theta);
     _torus->RotacionaZ(_theta);
     _torus->Translada(_vetorTranslacao);
     //glPushMatrix();
     //glMultTransposeMatrixd(_torus->GetMatrizRotacao());
-    _torus->Desenha();
+    //_torus->Desenha();
+
+
+    //_torus->AumentarEscala();
     //glPushMatrix();
     //glPopMatrix();
     //glPopMatrix();
@@ -312,7 +400,6 @@ void idle(void)
  */
 void KeyBoard(unsigned char key, int, int)
 {
-    cout << key << endl;
     switch (key)
     {
     case 27 :
@@ -377,6 +464,35 @@ void KeyBoard(unsigned char key, int, int)
             _torus->Reiniciar();
         }
         break;
+    case 'd':
+        distancia+=5;
+        break;
+    case 'D':
+        distancia-=5;
+        break;
+    case 'l':
+        camAngleX+=1;
+        break;
+    case 'L':
+        camAngleX-=1;
+        break;
+    case 'i':
+        camAngleY+=1;
+        //cout << camAngleY << endl;
+        break;
+    case 'I':
+        camAngleY-=1;
+        //cout << camAngleY << endl;
+        break;
+    case 'T':
+        tArvore++;
+        if(tArvore > MAX_ARVORE) tArvore = MAX_ARVORE;
+        break;
+    case 't':
+        tArvore--;
+        if(tArvore < 0) tArvore = 0;
+        //cout << camAngleY << endl;
+        break;
     }
 
     glutPostRedisplay();
@@ -389,7 +505,7 @@ void GlutLightSetup()
 {
     glEnable(GL_LIGHT0);
 
-    const GLfloat light_ambient[]  = { 0.0f, 0.0f, 0.0f, 1.0f };
+    const GLfloat light_ambient[]  = { 0.0f, 0.0f, 0.0f, 0.0f };
     const GLfloat light_diffuse[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
     const GLfloat light_specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
     const GLfloat light_position[] = { 2.0f, 5.0f, 5.0f, 0.0f };
@@ -490,7 +606,43 @@ void MouseManager(int button, int state, int x, int y)
             CreateMenu();
         }
     }
+
+    if (button == GLUT_LEFT_BUTTON)
+    {
+        if (state == GLUT_DOWN)
+        {
+            _lastYMouse = y;
+            _lastXMouse = x;
+            //cout << "X: " << x << "Y: " << y << endl;
+        }else
+        {
+            //cout << "out" << endl;
+        }
+    }
+
     glutPostRedisplay();
+}
+
+/**
+ * @brief MouseMotion
+ * @param x
+ * @param y
+ */
+
+void MouseMotion(int x, int y)
+{
+    int novoY = _lastYMouse - y;
+    int novoX = _lastXMouse - x;
+    GLdouble a = novoY*_thetaY;
+    camAngleY += (a/10);
+
+    GLdouble b = novoX*_thetaX;
+    camAngleX += (b/10);
+
+
+    //cout << "Y: " << a << endl;
+    _lastYMouse = y;
+    _lastXMouse = x;
 }
 
 /**
@@ -500,6 +652,12 @@ void MouseManager(int button, int state, int x, int y)
  */
 void GlutSetup(int argc, char *argv[])
 {
+    _camera.eye[0]=0;
+    _camera.eye[1]=90;
+    _camera.eye[2]=180;
+
+    _camera.up[1]=1;
+
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(_width,_height);
@@ -510,6 +668,7 @@ void GlutSetup(int argc, char *argv[])
     glutReshapeFunc(Reshape);
     glutIdleFunc(idle);
     glutMouseFunc(MouseManager);
+    glutMotionFunc(MouseMotion);
     //cor utilizada para pintar toda a tela
     glClearColor(1,1,1,1);
 

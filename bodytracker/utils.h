@@ -34,6 +34,13 @@ public:
         POLYGON, ///< Utilizado para representar o chão preenchido com polígonos sólidos.
         CUBE ///< Utilizado para representar o chão, teto e paredes feitos com linhas.
     };
+
+    enum VectorIndiceEnum
+    {
+        X = 0, ///<<
+        Y = 1, ///<<
+        Z = 2 ///<<
+    };
 };
 
 #endif // UTILS_H
